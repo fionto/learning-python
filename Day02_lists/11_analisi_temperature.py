@@ -31,5 +31,6 @@ print("L'indice della temperatura più alta è:", temperature.index(max(temperat
 temperature_reversed = list(reversed(temperature))
 print(temperature_reversed)
 
+# calcolo della differenza
 differenza = max(temperature) - min(temperature)
 print("La differenza tra valore massimo e minimo è:", differenza)
