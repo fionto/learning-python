@@ -70,4 +70,7 @@ print("^ Entrambe mostrano la modifica perché puntano allo stesso oggetto")
 print("\n--- STRINGHE ---")
 print(f"nome_uno: {nome_uno}")
 print(f"nome_due: {nome_due}")  # Questa è rimasta invariata
-print("^ nome_due è rimasta invariata perché nome_uno ora punta a un nuovo oggetto")
+print(
+    "^ nome_due è rimasta invariata perché "
+    "nome_uno ora punta a un nuovo oggetto"
+)

@@ -12,7 +12,13 @@
 # Il tuo codice qui:
 
 # Creo la playlist
-playlist = ['Eight Days A Week', 'Let It Be', 'In My Life', 'Hey Jude', 'While My Guitar Gently Weeps']
+playlist = [
+    'Eight Days A Week', 
+    'Let It Be', 
+    'In My Life', 
+    'Hey Jude', 
+    'While My Guitar Gently Weeps',
+]
 
 # Inserisco una nuova canzone all'inizio
 playlist.insert(0, 'Yesterday')
@@ -29,5 +35,7 @@ playlist.sort()
 print(playlist)
 
 #Inverto
-reversed_playlist = list(reversed(playlist)) # Alternativa 1: usando sorted() con reverse=True
+reversed_playlist = list(reversed(playlist))
 print(reversed_playlist)
+
+# Alternativa inversione: usando sorted() con reverse=True

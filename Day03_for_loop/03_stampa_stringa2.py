@@ -12,7 +12,7 @@ num_lettere = len(stringa)
 # range(6) è come una "ricetta" che dice "genera numeri da 0 a 5"
 indici_in_avanti = range(num_lettere)
 
-# reversed() prende un iterabile e ritorna un REVERSED OBJECT (oggetto iterabile)
+# reversed() prende un iterabile e ritorna un REVERSED OBJECT (iterabile)
 # Anche reversed() NON materializza i numeri, ma li genera al bisogno, inversi
 # reversed() lavora su qualsiasi sequenza (range, liste, stringhe, ecc.)
 indici = reversed(indici_in_avanti)

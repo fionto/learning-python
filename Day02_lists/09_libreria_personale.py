@@ -12,7 +12,12 @@
 
 # Il tuo codice qui:
 
-libri = ['Cuori in Atlantide', 'Fight Club', 'Huckleberry Finn', 'Le Rane', '1984']
+libri = [
+    'Cuori in Atlantide', 
+    'Fight Club', 
+    'Huckleberry Finn', 
+    'Le Rane', 
+    '1984',]
 
 # Aggiungo due libri alla fine e stampo la lista aggiornata
 libri.append('Fiori per Algernon')

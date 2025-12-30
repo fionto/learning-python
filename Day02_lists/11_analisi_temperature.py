@@ -25,7 +25,9 @@ temperature.append(35)
 temperature.sort()
 
 # controllo qual è il valore massimo e poi da quello ricavo indice
-print("L'indice della temperatura più alta è:", temperature.index(max(temperature)))
+print(
+    "L'indice temperatura più alta è:", temperature.index(max(temperature))
+)
 
 # nuova lista riordinata al contrario
 temperature_reversed = list(reversed(temperature))
