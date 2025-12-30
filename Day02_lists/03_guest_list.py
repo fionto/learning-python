@@ -1,5 +1,5 @@
-#Make a list that includes at least 3 people you'd like to invite to dinner.
-#Use your list to print a message to each person, inviting them to dinner
+# Make a list that includes at least 3 people you'd like to invite to dinner.
+# Use your list to print a message to each person, inviting them to dinner
 
 peoples = ['Napoleone', 'Hammurabi', 'Attila', 'Garibaldi']
 

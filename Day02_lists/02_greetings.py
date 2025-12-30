@@ -1,6 +1,6 @@
-#Start with the list used in exercise 1.
-#Print a message to the names.
-#each message should be the same, but personalized with the name.
+# Start with the list used in exercise 1.
+# Print a message to the names.
+# each message should be the same, but personalized with the name.
 
 names = ['Leonardo', 'Michelangelo', 'Donatello', 'Raffaello']
 

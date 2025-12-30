@@ -1,7 +1,8 @@
-#start with exercise 3 guest list.
-#Add a print() call at the end of your program, stating the name of the gues who can't make it
-#Modify your list replacing the name of the guest who can make it.
-#Print a set of invitations, one for each person who is still in  your list.
+# start with exercise 3 guest list.
+# Add a print() call at the end of your program, stating the name of the guests 
+# who can't make it
+# Modify your list replacing the name of the guest who can make it.
+# Print a set of invitations, one for each person who is still in  your list.
 
 peoples = ['Napoleone', 'Hammurabi', 'Attila', 'Garibaldi']
 
