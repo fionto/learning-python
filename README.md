@@ -15,7 +15,7 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course** 
 - Concetti: immutabilità delle stringhe, del statement
 
 ### Capitolo 3: Liste ✅
-**29 dicembre 2024 - Mattina**
+**29 dicembre 2024**
 - Operazioni: [], append(), insert(), del, pop(), remove(), sort(), reverse(), len()
 - Scoperta metodi: count(), clear(), copy(), index()
 - Concetto fondamentale: mutabilità vs. immutabilità
@@ -23,7 +23,7 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course** 
 - Esercizi completati: 5 esercizi di media difficoltà con ricerca autonoma di nuovi metodi
 
 ### Capitolo 4: For Loops 🔄 *In Corso*
-**31 dicembre 2024**
+**30/31 dicembre 2024**
 - Sintassi base dei for loop
 - Iterazione su liste, stringhe, e range objects
 - Difference tra range() e liste
