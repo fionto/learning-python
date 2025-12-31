@@ -12,6 +12,7 @@ learning-python/
 ├── README.md                    # Questa pagina
 ├── BOOK_PROGRESS.md             # Dettagli capitoli libro
 ├── EXERCISES_SUMMARY.md         # Riepilogo esercizi
+├── 00_notes                     # Note conoscenze trasversali
 ├── Day01_strings/               # Capitolo 2
 ├── Day02_lists/                 # Capitolo 3
 └── Day03_for_loops/             # Capitolo 4
@@ -19,12 +20,12 @@ learning-python/
 
 ## 📚 Risorse
 
-- **Libro**: Python Crash Course (Eric Matthes, edizione italiana)
+- **Libro**: Python Crash Course (Eric Matthes)
 - **Corso**: Harvard CS50P
 - **Editor**: VS Code
 
 ---
 
 **Vedi i dettagli:**
-- [Progressi Libro →](00_BOOK_PROGRESS.md)
-- [Esercizi Completati →](00_EXERCISES_SUMMARY.md)
+- [Progressi Libro →](BOOK_PROGRESS.md)
+- [Esercizi Completati →](EXERCISES_SUMMARY.md)
