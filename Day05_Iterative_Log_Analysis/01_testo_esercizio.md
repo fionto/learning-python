@@ -83,6 +83,7 @@ lista_segnali = [
 ```
 
 ## Esempio di output
+```
 Analisi Terminata. Generazione Report...
 ----------------------------------------
 REPORT SICUREZZA BASE ALPHA
@@ -102,3 +103,4 @@ Dettaglio Dizionario:
   'intensita_totale': 159.2, 
   'stato_allerta': 'ALTO'
 }
+```
