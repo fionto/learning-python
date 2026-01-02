@@ -47,43 +47,67 @@ Riepilogo di tutti gli esercizi completati, organizzato per capitolo.
 ## Capitolo 4: Lavorare con le Liste
 
 ### Esercizi del Libro
-**Status**: ✅ Completati (sezioni principali)  
+**Status**: ✅ Completati  
 **Totale**: 15 esercizi (4-1 a 4-15)
 
-### Esercizi Custom - For Loops (Set 1: Elementare) (5)
-
-| Esercizio | Concetti | Output |
-|-----------|----------|--------|
-| `somma_numeri.py` | For loop, accumulazione | Somma elementi lista |
-| `stringa_invertita.py` | range() negativo, stringhe | Stampa caratteri al contrario |
-| `filtra_lista.py` | For loop, .append() | Lista filtrata con numeri pari |
-| `lunghezza_stringhe.py` | len(), f-string, lista | Stampa lunghezza ogni parola |
-| `tabellina_nested.py` | Nested loops, range() | Tabelline 5x5 |
-
-**Concetti**: For loop basics, range objects, accumulazione, nested loops
-
----
-
-### Esercizi Custom - For Loops (Set 2: Incrementale) (5+)
+### Esercizi Custom - For Loops (Set 1 + Set 2: 10+)
 
 | Esercizio | Concetti | Difficoltà |
 |-----------|----------|-----------|
-| `somma_ultimi_tre.py` | Slicing negativo, for loop | ⭐⭐ |
-| `copia_invertita.py` | For loop, .append(), reversed() | ⭐⭐ |
-| `concatenazione_maiuscole.py` | .capitalize(), concatenazione stringhe | ⭐⭐ |
-| `caratteri_alternati.py` | Slicing con step, stampa | ⭐⭐ |
-| `lista_coppie.py` | For loop, liste annidate | ⭐⭐⭐ |
+| Somma dei numeri | Accumulazione, for loop | ⭐ |
+| Stampa invertita stringa (4 metodi) | range() negativo, reversed(), slicing step | ⭐⭐ |
+| Filtraggio lista | For loop, .append(), logica | ⭐ |
+| Lunghezza stringhe | len(), f-string, .capitalize() | ⭐ |
+| Tabelline nidificate | Nested loops, range() | ⭐⭐ |
+| Somma ultimi tre | Slicing negativo | ⭐⭐ |
+| Copia invertita | reversed(), .append() | ⭐⭐ |
+| Concatenazione maiuscole | Method chaining (.capitalize()), += | ⭐⭐ |
+| Caratteri alternati | Slicing con step | ⭐⭐ |
+| Lista di coppie | Nested list, for loop | ⭐⭐⭐ |
 
-**Concetti consolidati**: Slicing positivo/negativo, range() con step, for loop avanzati, concatenazione stringhe
+**Concetti consolidati**: For loops, range objects vs liste, slicing avanzato, nested loops, iterator objects, method chaining
+
+### Mega-Progetto: Bio-Informatic Data Parser v1.0
+
+**Valutazione**: A (95/100)  
+**Concetti applicati**: 
+- Set (per O(1) membership testing)
+- Tuple (per dati immutabili)
+- Dictionary (strutture complesse)
+- String methods (method chaining)
+- Slicing (positivo, negativo, step)
+- Function design (Single Responsibility)
+
+**Highlights**:
+- Primo progetto multi-funzione complesso
+- Uso creativo di Set per validation senza condizionali
+- Documentazione README professionale
+- Gestione dati strutturati e parsing
+
+**Link valutazione**: Code review per esercizi intermedi
 
 ---
 
-### Esercizi Completati da Chat Diretta
+## Capitolo 5: Istruzioni if
 
-| Esercizio | Codice | Concetti |
-|-----------|--------|----------|
-| Esercizio 4: Lunghezza animali | `animali = ["gatto", "elefante", "ape", "dinosauro"]` | .capitalize() in f-string, len() |
-| Esercizio 5: Tabelline | `range(1, 6)` x2 nested | Loop nidificati, `range(start, stop)` |
+**Status**: ✅ Completato  
+**Esercizi del Libro**: Non completati (approccio pragmatico — esercizi giudicati elementari)
+
+**Concetti da Code Review e applicazione pratica**:
+- Esercizio intermedio Parser ha richiesto approfondimento autonomo su **Shadowing** e **Keywords**
+- Consolidamento attraverso analisi errori reali nel progetto
+
+---
+
+## Capitolo 6: Dizionari
+
+**Status**: ✅ Completato  
+**Esercizi del Libro**: Non completati (stessa strategia di Cap. 5)
+
+**Mega-Progetto Parser consolida**:
+- Strutture dati multi-livello
+- Annidamento (liste di dizionari, dizionari dentro dizionari)
+- Accesso e manipolazione di dati complessi
 
 ---
 
@@ -93,16 +117,19 @@ Riepilogo di tutti gli esercizi completati, organizzato per capitolo.
 
 | Tipo | Numero | Status |
 |------|--------|--------|
-| Esercizi Libro | 38 | ✅ Completati |
+| Esercizi Libro | 53 | ✅ Completati (Cap. 1-4) |
 | Esercizi Custom | 15+ | ✅ Completati |
-| **Totale** | **53+** | ✅ |
+| Mega-Progetti | 1 | ✅ Completato (Parser A: 95/100) |
+| **Totale** | **70+** | ✅ |
 
 ### Capitoli Covered
 
-- ✅ Capitolo 1: Setup (completato)
-- ✅ Capitolo 2: Stringhe + 5 custom (completato)
-- ✅ Capitolo 3: Liste + 5 custom (completato)
-- 🔄 Capitolo 4: For Loops + 10+ custom (in corso - consolidamento)
+- ✅ Capitolo 1: Setup
+- ✅ Capitolo 2: Stringhe + 5 custom
+- ✅ Capitolo 3: Liste + 5 custom
+- ✅ Capitolo 4: For Loops + 10+ custom + Mega-Progetto Parser
+- ✅ Capitolo 5: If Statements (consolidamento pratico, no esercizi libro)
+- ✅ Capitolo 6: Dictionaries (consolidamento pratico, no esercizi libro)
 
 ---
 
@@ -130,5 +157,5 @@ Riepilogo di tutti gli esercizi completati, organizzato per capitolo.
 
 ---
 
-**Ultimo aggiornamento**: 31 dicembre 2024  
-**Prossimo passo**: Completare Set 2 for loops, poi capitolo 5 (if statements)
+**Ultimo aggiornamento**: 01 gennaio 2026  
+**Prossimo passo**: Capitolo 7 (Input dell'utente e while loops) - inizio esercizi custom

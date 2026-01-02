@@ -38,7 +38,7 @@ Cronologia di lettura e studio del libro **"Python Crash Course"** di Eric Matth
 - Assegnazione multipla
 - Costanti
 - Commenti in Python
-- Lo Zen di Python (`import this`)
+- Lo Zen di Python (PEP 20)
 
 **Concetti approfonditi**:
 - Immutabilità delle stringhe
@@ -62,7 +62,7 @@ Cronologia di lettura e studio del libro **"Python Crash Course"** di Eric Matth
 ## Capitolo 3 – Introduzione alle liste
 
 **Status**: ✅ Completato  
-**Completato il**: 29 dicembre 2024 
+**Completato il**: 29 dicembre 2024 (mattina)  
 
 **Concetti studiati**:
 - Cos'è una lista e sintassi base `[]`
@@ -95,14 +95,8 @@ Cronologia di lettura e studio del libro **"Python Crash Course"** di Eric Matth
 
 ## Capitolo 4 – Lavorare con le liste
 
-**Status**: 🔄 In Corso  
-**Inizio**: 30 dicembre 2024  
-**Sezioni completate**:
-- ✅ Cicli su un'intera lista (for loop basics)
-- ✅ Uno sguardo più approfondito ai cicli
-- ✅ Fare più operazioni all'interno di un ciclo for
-- 🔄 Errori di indentazione (in studio)
-- 🔄 Liste numeriche (in studio)
+**Status**: ✅ Completato  
+**Completato il**: 31 dicembre 2024  
 
 **Concetti studiati**:
 - Sintassi base del `for` loop
@@ -112,42 +106,114 @@ Cronologia di lettura e studio del libro **"Python Crash Course"** di Eric Matth
 - Indentazione e suoi errori comuni
 - La funzione `range()`: range(n), range(start, stop), range(start, stop, step)
 - Nested loops (loop annidati)
+- Slicing di liste e stringhe (positivo, negativo, con step)
+- Tuple e loro caratteristiche
 
 **Concetti approfonditi**:
 - PEP8: lunghezza righe (79 caratteri), trailing commas per diffs migliori
 - Implicit string concatenation su più righe
 - Git diff e come trailing commas lo rendono più leggibile
 - Differenza tra range objects (lazy) e liste (materialized)
+- Reversed objects come iterator
+- Aliasing vs. copia di liste (approfondimento mutabilità)
 
 **Esercizi completati**: 
-- 5 esercizi custom di livello elementare
-  - Somma dei numeri
-  - Stampa invertita di una stringa
+- 10+ esercizi custom (elementari + incrementali)
+  - Somma dei numeri e accumulazione
+  - Stampa invertita di una stringa (4 metodi diversi)
   - Filtraggio di una lista
-  - Lunghezza delle stringhe in una lista
-  - Tabellina con numeri (nested loops)
+  - Lunghezza delle stringhe in una lista con .capitalize()
+  - Tabelline con loop nidificati
+  - Slicing avanzato (negativo, con step)
+  - Copia invertita con reversed()
+  - Concatenazione stringhe con metodi
+  - Estrazione caratteri alternati
+  - Lista di coppie da due liste
 
-**Esercizi in corso**:
-- 5 esercizi custom di difficoltà incrementale (3/5 completati)
+**Mega-progetto**:
+- **Bio-Informatic Data Parser v1.0** (Project Cosmic Parser)
+  - Valutazione: A (95/100)
+  - Concetti applicati: Set, Tuple, Dictionary, String methods, Slicing, Function design
+  - Gestione dati strutturati, parsing, validazione logica
+  - Documentazione professionale con analisi evolutiva
+  - [Valutazione completa chat: Code review per esercizi intermedi]
 
 **Note**: 
-- Forte comprensione dei concetti fondamentali di iterazione
-- Attento alle best practices di stile (PEP8)
-- Interesse genuino nei meccanismi sottostanti (iterator vs. list materialization)
-- Mantiene focus su for loops, evitando salti ai capitoli successivi per consolidamento solido
+- Consolidamento completo del capitolo
+- Approccio metodico e ordinato
+- Applicazione creativa di concetti in un progetto reale
+- Pronto per passare ai capitoli successivi
 
 ---
 
 ## Capitolo 5 – Istruzioni if
 
-**Status**: ⏳ Non ancora iniziato  
-**Note**: Verrà affrontato dopo completo consolidamento del Capitolo 4
+**Status**: ✅ Completato  
+**Completato il**: 01 gennaio 2026  
+
+**Concetti studiati** (dal libro):
+- Test condizionali e booleani
+- Operatori di confronto: ==, !=, >, <, >=, <=
+- Operatori logici: and, or, not
+- Verificare appartenenza a liste (in, not in)
+- Espressioni booleane
+- Istruzioni if semplici
+- Istruzioni if-else
+- Catena if-elif-else
+
+**Concetti approfonditi** (supplementari):
+- **Statement `is`** (Corey Schafer) — confronto di identità vs. uguaglianza
+- **Type checking** — verificare il tipo di una variabile
+- **Keywords e Shadowing** (ricerca autonoma) — implicazioni quando si riassegnano variabili
+  - Concetto critico emerso durante sviluppo Project Parser
+  - Comprensione di scope e namespace in Python
+
+**Esercizi completati**: 
+- Nessun esercizio dal libro (giudicati troppo elementari)
+- Consolidamento attraverso mega-progetto Parser e riflessione autonoma
+
+**Note**: 
+- Approccio selettivo: saltare esercizi ridondanti, focus su applicazione pratica
+- Approfondimento autonomo di shadowing causato da errori nel Parser
+- Integrazione di fonti supplementari per completezza concettuale
 
 ---
 
 ## Capitolo 6 – Dizionari
 
-**Status**: ⏳ Non ancora iniziato
+**Status**: ✅ Completato  
+**Completato il**: 01 gennaio 2026  
+
+**Concetti studiati** (dal libro):
+- Struttura dizionario: chiave-valore
+- Accesso ai valori tramite chiave
+- Aggiungere e modificare coppie chiave-valore
+- Rimuovere coppie (del, .pop())
+- Metodo .get() per accesso sicuro
+- Iterazione su dizionari:
+  - Ciclo su coppie chiave-valore (.items())
+  - Ciclo su sole chiavi
+  - Ciclo su soli valori
+- **Annidamento** (dal libro):
+  - Lista di dizionari
+  - Dizionari dentro dizionari
+  - Liste dentro dizionari
+
+**Concetti approfonditi** (supplementari):
+- **List of dictionaries** (dal libro, capitolo dedicato) — strutture dati complesse
+- Unpacking di dizionari (anticipato da future refactoring)
+
+**Esercizi completati**: 
+- Nessun esercizio dal libro (stesso criterio del Cap. 5)
+- **Mega-progetto Parser v1.0** consolida dizionari e annidamento:
+  - Strutture dati multi-livello
+  - Accesso e manipolazione di dati complessi
+  - Gestione errori tramite validazione logica senza `if`
+
+**Note**: 
+- Approccio pragmatico: esercizi libro saltati, apprendimento attraverso progetti
+- Fondamento solido per strutture dati complesse
+- Parser dimostra mastery di dictionary operations in contesto reale
 
 ---
 
@@ -183,24 +249,32 @@ Cronologia di lettura e studio del libro **"Python Crash Course"** di Eric Matth
 
 ## Sommario Generale
 
-**Capitoli completati**: 2/11 (18%)  
-**Capitoli in corso**: 1/11  
-**Capitoli rimanenti**: 8/11  
+**Capitoli completati**: 4/11 (36%)  
+**Capitoli in corso**: 0/11  
+**Capitoli rimanenti**: 7/11  
 
-**Ultimo aggiornamento**: 31 dicembre 2024, 09:30 UTC
+**Ultimo aggiornamento**: 01 gennaio 2026, 11:16 UTC
 
 **Metodologia di studio**:
-- Lettura del capitolo dal libro
-- Video YouTube supplementari
-- Esercizi del libro
-- Esercizi custom per consolidamento
+- Lettura del capitolo dal libro (quando appropriato)
+- Video YouTube supplementari (Corey Schafer)
+- CS50P lectures in parallelo (Harvard)
+- Esercizi del libro (quando significativi) + esercizi custom
+- Mega-progetti per consolidamento pratico
 - Documentazione in Markdown per riferimento futuro
 - Tempo dedicato: ~10 minuti al giorno + sessioni weekend
 
 **Paralleli attivi**:
-- Harvard CS50P course (edX)
+- Harvard CS50P course (edX) - Lecture 0 e 1 completate
+- Corey Schafer YouTube tutorials (video supplementari)
 - Bash/shell scripting (come reference per design Python)
 - Git e version control (tramite learning repository)
+
+**Fonti integrate**:
+- **Libro**: Python Crash Course (Eric Matthes, edizione italiana) — base strutturale
+- **CS50P**: Funzioni, concetti avanzati
+- **Corey Schafer**: Dettagli tecnici (statement is, ecc.)
+- **Ricerca autonoma**: Keywords, shadowing, type checking
 
 ---
 
