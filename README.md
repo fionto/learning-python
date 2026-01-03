@@ -5,36 +5,69 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course**,
 ## 📊 Progresso Attuale
 
 - **Libro**: Capitolo 6 completato (Dictionaries)
-- **Esercizi**: 70+ completati
-- **Mega-Progetti**: 2 (Parser v1.0 A:95/100, Protocollo v1.0)
+- **Esercizi**: 85+ completati
+- **Mega-Progetti**: 2 completati
 - **Inizio**: 28 dicembre 2024
-- **Ultimo aggiornamento**: 02 Gennaio 2026
+- **Ultimo aggiornamento**: 03 Gennaio 2026
 
 ## 📁 Struttura del Progetto
 
 ```
 learning-python/
-├── README.md                        # Questa pagina
-├── BOOK_PROGRESS.md                 # Dettagli capitoli libro
-├── EXERCISES_SUMMARY.md             # Riepilogo esercizi e progetti
-├── 00_notes/                        # Note conoscenze trasversali
 │
-├── Day01_strings/                   # Capitolo 2: Stringhe e variabili
-├── Day02_lists/                     # Capitolo 3: Liste
-├── Day03_for_loops/                 # Capitolo 4: For loops e slicing
+├── 📚 DOCS/                                # Documentazione e tracciamento progresso
+│   ├── BOOK_PROGRESS.md                    # Capitoli del libro completati
+│   ├── EXERCISES_PROGRESS.md               # Riepilogo esercizi e progetti
+│   └── EXERCISES_ANALYSIS.md               # Valutazione esercizi da parte di Gemini
+|
+├── 📖 BOOK/                                # Esercizi organizzati per capitolo
+│   ├── 01-Intro/                           # Capitolo 1: Hello World
+│   ├── 02-Variables/                       # Capitolo 2: Variabili e stringhe
+│   │   └── ... (13 esercizi totali)
+│   ├── 03-Lists/                           # Capitolo 3: Liste
+│   │   └── ... (11 esercizi totali)
+│   ├── 04-Loops/                           # Capitolo 4: For loops + List Comprehensions
+│   │   ├── Day03_for_loops/                # Esercizi for loops base
+│   │   │   └── ... (15 esercizi)
+│   │   └── Day07_ListComprehensions/       # Esercizi ListComprehension
+│   │       └── ... (8 esercizi)
+│   ├── 05-Conditionals/                    # Capitolo 5: If, elif, else
+│   │   └── ... (7 esercizi)
+│   ├── 06-Dictionaries/                    # Capitolo 6: Dizionari
+│   ├── 07-UserInput/                       # Capitolo 7: Input utente e while
+│   ├── 08-Functions/                       # Capitolo 8: Funzioni
+│   ├── 09-Classes/                         # Capitolo 9: Classi e OOP
+│   ├── 10-FilesExceptions/                 # Capitolo 10: File ed eccezioni
+│   └── 11-Testing/                         # Capitolo 11: Test del codice
 │
-├── Day04_Project_Cosmic_Parser/     # Mega-Progetto 1: Bio-Informatic Data Parser
-│   └── (Valutazione: A 95/100)
+├── 💡 CONCEPTS/                            # Concetti trasversali (non capitolo-specifici)
+│   ├── 00_keywords.md                      # Parole chiave Python
+│   └── 01_shadowing.md                     # Shadowing di variabili
 │
-└── Day05_Project_Protocollo/        # Mega-Progetto 2: Protocollo Parser
+├── 🏫 COURSES/                             # Risorse esterne e appunti
+│   ├── CS50P/                              # Harvard CS50P course (edX)
+│   │   ├── Lecture00.md
+│   │   └── Lecture01.md
+│   └── CoreySchafer/                       # Tutorial YouTube Corey Schafer
+│       └── video_corey_schafer.md
+│
+├── 🛠️  TOOLS/                              # Strumenti e configurazioni
+│   ├── Git/                                # Guide e workflow Git
+│   │   └── git-guida-introduttiva.md
+│   └── prompt_esercizi.md                  # Prompt template per esercizi
+│
+└── 🚀 PROJECTS/                            # Progetti di consolidamento
+    ├── 01-BioParser/                       # Progetto 1: Parser dati scientifici (A: 95/100)
+    ├── 02-SignalProcessor/                 # Progetto 2: Analizzatore segnali batch
+    └── 03-TBD/                             # Progetto 3: Prossimamente
 ```
 
 ## 📚 Risorse
 
-- **Libro**: Python Crash Course (Eric Matthes, edizione italiana)
+- **Libro**: Python Crash Course (Eric Matthes)
 - **Corso**: Harvard CS50P via edX (Lecture 0-1 completate)
 - **Video**: Corey Schafer YouTube tutorials (supplementari)
-- **Editor**: VS Code on Linux Mint
+- **Editor**: VS Code
 - **Version Control**: Git + GitHub (repository privato)
 
 ## 🎯 Metodologia
@@ -44,7 +77,7 @@ learning-python/
 - ✅ Mega-progetti per applicazione pratica di concetti
 - ✅ Fonti supplementari per approfondimenti
 - ✅ Documentazione Markdown per riferimento futuro
-- ✅ Version control rigoroso con Git
+- ✅ Version control con Git
 
 ## 📋 Prossimi Step
 
@@ -53,10 +86,3 @@ learning-python/
 3. Capitolo 9: Classi e OOP
 4. Capitolo 10: File ed eccezioni
 5. Capitolo 11: Testing
-
----
-
-**Vedi i dettagli completi:**
-- [📖 Progressi Libro →](BOOK_PROGRESS.md)
-- [📝 Esercizi e Progetti →](EXERCISES_SUMMARY.md)
-- [📂 Note Trasversali →](00_notes/)
