@@ -19,26 +19,36 @@ learning-python/
 │   ├── BOOK_PROGRESS.md                    # Capitoli del libro completati
 │   ├── EXERCISES_PROGRESS.md               # Riepilogo esercizi e progetti
 │   └── EXERCISES_ANALYSIS.md               # Valutazione esercizi da parte di Gemini
-|
-├── 📖 BOOK/                                # Esercizi organizzati per capitolo
-│   ├── 01-Intro/                           # Capitolo 1: Hello World
-│   ├── 02-Variables/                       # Capitolo 2: Variabili e stringhe
-│   │   └── ... (13 esercizi totali)
-│   ├── 03-Lists/                           # Capitolo 3: Liste
-│   │   └── ... (11 esercizi totali)
-│   ├── 04-Loops/                           # Capitolo 4: For loops + List Comprehensions
-│   │   ├── Day03_for_loops/                # Esercizi for loops base
-│   │   │   └── ... (15 esercizi)
-│   │   └── Day07_ListComprehensions/       # Esercizi ListComprehension
-│   │       └── ... (8 esercizi)
-│   ├── 05-Conditionals/                    # Capitolo 5: If, elif, else
-│   │   └── ... (7 esercizi)
-│   ├── 06-Dictionaries/                    # Capitolo 6: Dizionari
-│   ├── 07-UserInput/                       # Capitolo 7: Input utente e while
-│   ├── 08-Functions/                       # Capitolo 8: Funzioni
-│   ├── 09-Classes/                         # Capitolo 9: Classi e OOP
-│   ├── 10-FilesExceptions/                 # Capitolo 10: File ed eccezioni
-│   └── 11-Testing/                         # Capitolo 11: Test del codice
+│
+├── 📖 BOOKS/                               # Libri organizzati per corso
+│   │
+│   ├── 01-PythonCrashCourse/               # Python Crash Course (Eric Matthes)
+│   │   │
+│   │   ├── README.md                       
+│   │   ├── 01-Intro/                       # Capitolo 1: Hello World
+│   │   ├── 02-Variables/                   # Capitolo 2: Variabili e stringhe
+│   │   │   └── ... (13 esercizi totali)
+│   │   ├── 03-Lists/                       # Capitolo 3: Liste
+│   │   │   └── ... (11 esercizi totali)
+│   │   ├── 04-Loops/                       # Capitolo 4: For loops + List Comprehensions
+│   │   │   ├── Day03_for_loops/            # Esercizi for loops base
+│   │   │   │   └── ... (15 esercizi)
+│   │   │   └── Day07_ListComprehensions/   # Esercizi ListComprehension
+│   │   │       └── ... (8 esercizi)
+│   │   ├── 05-Conditionals/                # Capitolo 5: If, elif, else
+│   │   │   └── ... (7 esercizi)
+│   │   ├── 06-Dictionaries/                # Capitolo 6: Dizionari
+│   │   ├── 07-UserInput/                   # Capitolo 7: Input utente e while
+│   │   ├── 08-Functions/                   # Capitolo 8: Funzioni
+│   │   ├── 09-Classes/                     # Capitolo 9: Classi e OOP
+│   │   ├── 10-FilesExceptions/             # Capitolo 10: File ed eccezioni
+│   │   └── 11-Testing/                     # Capitolo 11: Test del codice
+│   │
+│   ├── 02-ThinkPython/                     # Think Python (Allen Downey)
+│   │   └── README.md                       # Da iniziare
+│   │
+│   └── 03-TBD/                             # Libro 3: TBD
+│       └── README.md                       # Placeholder
 │
 ├── 💡 CONCEPTS/                            # Concetti trasversali (non capitolo-specifici)
 │   ├── 00_keywords.md                      # Parole chiave Python
@@ -57,7 +67,7 @@ learning-python/
 │   └── prompt_esercizi.md                  # Prompt template per esercizi
 │
 └── 🚀 PROJECTS/                            # Progetti di consolidamento
-    ├── 01-BioParser/                       # Progetto 1: Parser dati scientifici (A: 95/100)
+    ├── 01-BioParser/                       # Progetto 1: Parser dati scientifici
     ├── 02-SignalProcessor/                 # Progetto 2: Analizzatore segnali batch
     └── 03-TBD/                             # Progetto 3: Prossimamente
 ```
