@@ -169,11 +169,10 @@ Cronologia di lettura e studio del libro **"Python Crash Course"** di Eric Matth
   - Comprensione di scope e namespace in Python
 
 **Esercizi completati**: 
-- Nessun esercizio dal libro (giudicati troppo elementari)
+- Svolti 5 esercizi trovati su fonti alternative
 - Consolidamento attraverso mega-progetto Parser e riflessione autonoma
 
 **Note**: 
-- Approccio selettivo: saltare esercizi ridondanti, focus su applicazione pratica
 - Approfondimento autonomo di shadowing causato da errori nel Parser
 - Integrazione di fonti supplementari per completezza concettuale
 
