@@ -1,9 +1,10 @@
 # 📂 CS50P Technical Activity Log
 
-**Repository:** Python Fundamentals
-**Last Update:** 03/01/2026
+**Repository:** learning-python
+**Last Update:** 06/01/2026
 **Environment:** Python 3.x, VS Code
-**Status:** In Progress (Chapters 1-5 Covered)
+**Status:** In Progress (Chapters 1-6 Covered)
+**Valutatore:** Gemini
 
 ---
 
@@ -16,17 +17,17 @@ Riepilogo delle primitive e dei pattern implementati nel codebase attuale.
     * `List`: Mutability, Slicing `[start:stop:step]`, Methods (`append`, `insert`, `pop`).
     * `Set`: Membership testing (`in`), Deduplication.
     * `Tuple`: Immutable data passing.
-    * `Dictionary`: Key-Value storage, Data aggregation.
+    * `Dictionary`: Key-Value storage, Data aggregation, Safe access via `.get()`.
 * **Control Flow:**
-    * Iterative: `for` loops, `range()`, `enumerate()`, List Comprehensions.
+    * Iterative: `for` loops, `range()`, `enumerate()`, List Comprehensions, Dict Iteration (`.items()`, `.keys()`, `.values()`).
     * Conditional: `if/elif/else`, `match/case` (Python 3.10), Ternary operators.
-    * Logic: Boolean flags, Compound conditions (`and`, `or`, `not`).
+    * Logic: Boolean flags, Guard Clauses, Membership testing (`not in`).
 
 ---
 
 ## 📜 Change Log & Implementation Details
 
-### 📂 Module: String Manipulation (Day 01)
+### 📂 Module: String Manipulation
 * **Source:** `Day01_strings.md`
 * **Coverage:** 13 Scripts.
 * **Key Implementations:**
@@ -34,7 +35,7 @@ Riepilogo delle primitive e dei pattern implementati nel codebase attuale.
     * **Prefix Handling:** Utilizzo di `removeprefix()` per pulizia URL, sostituendo slicing manuale.
     * **Search:** Utilizzo di `.find()` per localizzazione sottostringhe.
 
-### 📂 Module: Data Structures & Loops (Day 02, 03, 07)
+### 📂 Module: Data Structures & Loops
 * **Source:** `Day02_lists.md`, `Day03_for_loops.md`, `Day07_ListComprehensions.md`
 * **Coverage:** 33 Scripts.
 * **Key Implementations:**
@@ -46,13 +47,22 @@ Riepilogo delle primitive e dei pattern implementati nel codebase attuale.
         * *Pattern:* `[x for x in list if condition]`
         * *Pattern:* `[x if condition else y for x in list]`
 
-### 📂 Module: Control Flow & Logic (Day 06)
+### 📂 Module: Control Flow & Logic
 * **Source:** `Day06_ifStatements.md`
 * **Coverage:** 7 Scripts.
 * **Key Implementations:**
     * **Refactoring:** Conversione da Nested-Ifs a Flat-Ifs per migliorare leggibilità.
     * **Validation Logic:** Implementazione controlli multipli (spazi, lunghezza, tipo) aggregati in variabile booleana unica.
     * **Sanitization:** Gestione case-insensitive (`.lower()`) pre-validazione.
+
+### 📂 Module: Dictionaries
+* **Source:** `97_RaccoltaEsercizi.md`
+* **Coverage:** 10 Scripts.
+* **Key Implementations:**
+    * **Iterazione Avanzata:** Implementazione di cicli ottimizzati su `.items()` per coppie chiave-valore e `.values()` per estrazione dati aggregati.
+    * **Accesso Sicuro:** Utilizzo del metodo `.get(key, default)` per prevenire `KeyError` e gestire contatori iniziali (`05_frutta2`).
+    * **Inizializzazione Dinamica:** Gestione di chiavi inesistenti tramite controllo di appartenenza (`if key not in dict`) prima di operazioni di mutazione come `.append()` (`08_sensori`).
+    * **Data Parsing:** Raffinamento dello `.split()` per gestire whitespaces variabili e pulizia manuale della punteggiatura via `.replace()` (`04_frasi2`).
 
 ---
 
@@ -84,9 +94,10 @@ Riepilogo delle primitive e dei pattern implementati nel codebase attuale.
 
 | Modulo | Script/Funzioni | Stato | Note |
 | :--- | :--- | :--- | :--- |
-| **Strings** | 13 | Executed | Focus su metodi built-in |
-| **Lists** | 11 | Executed | Focus su mutabilità e metodi CRUD |
+| **Strings** | 13 | Executed | Metodi built-in e sanitizzazione |
+| **Lists** | 11 | Executed | Mutabilità e metodi CRUD |
 | **Loops** | 14 | Executed | Iterazione classica e slicing |
 | **Condizionali** | 7 | Executed | Logica booleana e refactoring |
-| **Comprehensions** | 8 | Executed | Sintassi concisa per liste |
+| **Comprehensions** | 8 | Executed | Sintassi concisa per trasformazioni |
+| **Dictionaries** | 10 | Executed | Gestione chiavi, `.get()` e annidamento |
 | **Projects** | 2 | Completed | Rispetto vincoli architetturali |

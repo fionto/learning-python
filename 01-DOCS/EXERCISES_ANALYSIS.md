@@ -58,6 +58,21 @@ Riepilogo di tutti gli esercizi completati, organizzato per capitolo.
 
 ---
 
+### 📖 Capitolo 6: Dizionari (Day 08)
+**Esercizi completati:** 10
+
+| Esercizio | Concetti Chiave | Valutazione |
+| :--- | :--- | :--- |
+| `02` - `03` | Iterazione tramite `.items()`, `.keys()` e `.values()` | **A** |
+| `04` | Conteggio frequenze e sanitizzazione stringhe | **A** |
+| `05` | Accesso sicuro con `.get()` e unpacking di tuple | **A+** |
+| `08` | Gestione di strutture dati nidificate (Liste di Dizionari) | **A+** |
+
+* **Highlights**: L'uso sistematico di `spesa.get(frutto, 0)` in `05_frutta2` denota una transizione verso uno stile di programmazione più difensivo e pulito. Notevole l'auto-riflessione documentata in `08_sensori` sulla corretta inizializzazione delle chiavi.
+* **Concetti consolidati**: Mapping chiave-valore, aggregazione di dati complessi e gestione dinamica dei dizionari.
+
+---
+
 ## 🚀 2. Analisi Mega-Progetti
 
 ### Progetto 1: Single Record Parser (`single-record-parser.py`)
@@ -99,7 +114,7 @@ Riepilogo di tutti gli esercizi completati, organizzato per capitolo.
 * ✅ **Cap. 3:** Intro Liste
 * ✅ **Cap. 4:** Lavorare con Liste (Loops, Slicing, Comprehensions)
 * ✅ **Cap. 5:** Istruzioni If
-* ⬜ **Cap. 6:** Dizionari (Introdotti nei progetti, ma manca focus specifico esercizi)
+* ✅ **Cap. 6:** Dizionari
 * ⬜ **Cap. 7:** Input & While Loops (Parzialmente visti in Progetto 1)
 
 ### Metriche di Qualità
@@ -117,14 +132,8 @@ Lo studente dimostra una comprensione superiore alla media per questo stadio del
 
 Basandomi sul syllabus caricato e sui gap attuali:
 
-1.  **Focus Immediato (Capitolo 6 - Dizionari):**
-    * Nei progetti li hai usati per l'output, ma ora devi imparare a **iterare** su di essi (`.items()`, `.keys()`) e a nidificarli (Lista di Dizionari, Dizionario di Dizionari).
-    * *Suggerimento:* Riprendi l'esercizio `batch-signal-processor.py` e prova a raggruppare i segnali per "ZONA" usando un dizionario.
-
-2.  **While Loops (Capitolo 7):**
+1.  **While Loops (Capitolo 7):**
     * Hai usato `for`, ora serve `while` per menu interattivi che non finiscono finché l'utente non digita "quit".
 
-3.  **Gestione Errori (Verso Cap. 10):**
+2.  **Gestione Errori (Verso Cap. 10):**
     * Nel progetto `batch-signal-processor.py`, la riga `float(componenti_segnale[3])` potrebbe crashare se il quarto elemento non è un numero, anche se il primo lo è. Presto dovrai imparare `try/except` per blindare queste conversioni.
-
-**Azione consigliata:** Procedere con gli esercizi del **Capitolo 6 (Dizionari)** e provare a rifattorizzare il *Batch Processor* usando una struttura dati più complessa.

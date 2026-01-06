@@ -5,10 +5,10 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course**,
 ## 📊 Progresso Attuale
 
 - **Libro**: Capitolo 6 completato (Dictionaries)
-- **Esercizi**: 85+ completati
+- **Esercizi**: 95+ completati
 - **Mega-Progetti**: 2 completati
 - **Inizio**: 28 dicembre 2024
-- **Ultimo aggiornamento**: 03 Gennaio 2026
+- **Ultimo aggiornamento**: 06 Gennaio 2026
 
 ## 📁 Struttura del Progetto
 
@@ -38,6 +38,7 @@ learning-python/
 │   │   ├── 05-Conditionals/                # Capitolo 5: If, elif, else
 │   │   │   └── ... (7 esercizi)
 │   │   ├── 06-Dictionaries/                # Capitolo 6: Dizionari
+│   │   │   └── ... (8 esercizi)
 │   │   ├── 07-UserInput/                   # Capitolo 7: Input utente e while
 │   │   ├── 08-Functions/                   # Capitolo 8: Funzioni
 │   │   ├── 09-Classes/                     # Capitolo 9: Classi e OOP
