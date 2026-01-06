@@ -1,10 +1,11 @@
-# ESERCIZIO 2
+# ESERCIZIO 5
 #
 # Data una lista di tuple (prodotto, quantità),
-# scrivi una funzione che costruisca un dizionario
+# scrivi un codice che costruisca un dizionario
 # con il totale delle quantità per ciascun prodotto.
 #
 
+# Lista di tuples
 acquisti = [
     ("mele", 3),
     ("pere", 5),

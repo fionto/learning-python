@@ -1,5 +1,6 @@
-# ESERCIZIO 1
-# Dato un elenco di frasi, scrivi una funzione che restituisca un dizionario
+# ESERCIZIO 4
+#
+# Dato un elenco di frasi, scrivi un codice che restituisca un dizionario
 # in cui a ogni frase è associato il numero di parole uniche (case-insensitive),
 # escludendo la punteggiatura.
 #
@@ -11,15 +12,18 @@ def main():
         "È importante leggere la documentazione."
     ]
 
-    # Genero direttamente
-    dizionario = dict.fromkeys(frasi)
+    # Non serve riempire le chiavi perché l'assegnazione dopo eseguue tutto
+    dizionario = {}
     
     for frase in frasi:
         frase_pulita = frase.replace(',', '').replace('.', '').replace('!', '').lower()
-        parole = frase_pulita.split(' ')
+        
+        # Faccio split senza argomento: divido stringa su qualsiasi sequenza di whitespaces
+        parole = frase_pulita.split()
         
         numero_uniche = uniche(parole)
         
+        # Se la chiave non esiste, la crea. Se la chiave esiste, sovrascrivi il valore.
         dizionario[frase] = numero_uniche
 
     print(dizionario)
