@@ -4,7 +4,7 @@
 **Last Update:** 06/01/2026
 **Environment:** Python 3.x, VS Code
 **Status:** In Progress (Chapters 1-6 Covered)
-**Valutatore:** Gemini
+**Valutatore:** Gemini (modello??)
 
 ---
 
