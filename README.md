@@ -7,7 +7,7 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course**,
 - **Libro**: Capitolo 6 completato (Dictionaries)
 - **Esercizi**: 95+ completati
 - **Mega-Progetti**: 2 completati
-- **Inizio**: 28 dicembre 2024
+- **Inizio**: 27 dicembre 2024
 - **Ultimo aggiornamento**: 06 Gennaio 2026
 
 ## 📁 Struttura del Progetto
