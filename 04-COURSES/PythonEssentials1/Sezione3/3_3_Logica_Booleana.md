@@ -1,4 +1,4 @@
-# Logica Booleana e Operazioni in Bit: Dal Pensiero Logico all'Hardware
+# Capitolo 3: Sezione 3.3 - Logica Booleana e Operazioni in Bit: Dal Pensiero Logico all'Hardware
 
 ## Introduzione: Ampliare la Complessità Logica
 

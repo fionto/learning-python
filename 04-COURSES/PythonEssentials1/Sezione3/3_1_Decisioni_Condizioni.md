@@ -1,4 +1,4 @@
-# Prendere Decisioni in Python: Una Guida alla Logica Condizionale
+# Capitolo 3: Sezione 3.1 - Prendere Decisioni in Python: Una Guida alla Logica Condizionale
 
 ## Introduzione: Il Dialogo tra Programma e Computer
 

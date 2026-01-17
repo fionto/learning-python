@@ -1,4 +1,4 @@
-# I Cicli in Python: Automatizzare la Ripetizione
+# Capitolo 3: Sezione 3.2 - I Cicli in Python: Automatizzare la Ripetizione
 
 ## Introduzione: La Potenza della Ripetizione
 
