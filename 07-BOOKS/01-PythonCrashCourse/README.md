@@ -13,40 +13,67 @@ Un'introduzione pratica a Python per principianti assoluti. La prima metà copre
 
 ---
 
-## 📚 Struttura
-
-### Parte I: Fondamenti (Capitoli 1-11)
-11 capitoli progressivi che insegnano:
-- Variabili, stringhe, numeri
-- Liste, dizionari, tuple
-- Cicli (for, while) e condizionali (if)
-- Funzioni e programmazione orientata agli oggetti
-- Gestione di file, eccezioni e testing
-
-### Parte II: Progetti (Capitoli 12-20)
-
-**Progetto 1** (Cap. 12-14): Gioco arcade stile Space Invaders con Pygame  
-**Progetto 2** (Cap. 15-17): Visualizzazioni di dati con Matplotlib e Plotly  
-**Progetto 3** (Cap. 18-20): Applicazione web con Django e deployment
-
----
-
 ## 🛠️ Strumenti Coperti
 
-- **VS Code** per lo sviluppo
-- **Pygame** per il game development
-- **Matplotlib, Plotly** per le visualizzazioni
-- **Django** per il web development
-- **pytest** per il testing
-- **Git** per il versionamento
+| Strumento | Capitoli | Descrizione |
+|-----------|----------|-------------|
+| **VS Code** | 1, Appendix B | Text editor and IDE setup |
+| **pytest** | 11 | Testing framework for code verification |
+| **Pygame** | 12-14 | 2D game development library |
+| **Matplotlib** | 15, Appendix D | Static data visualization |
+| **Plotly** | 16-17 | Interactive data visualization |
+| **Requests API** | 17 | HTTP library for API calls |
+| **Django** | 18-20 | Web framework for full-stack apps |
+| **Git** | Appendix D | Version control and deployment |
+| **pathlib** | 10 | Modern file path handling |
+| **Tailwind CSS** | 20 | CSS framework for styling |
 
 ---
 
-## 🎯 Per Chi
+## 📚 Struttura
 
-✅ Principianti assoluti senza esperienza di programmazione  
-✅ Chi vuole imparare project-based, non solo teoria  
-✅ Chiunque voglia capire game dev, data viz o web basics
+### PART I: BASICS (Capitoli 1-11)
+
+| # | Capitolo | Concetti Chiave | Status |
+|---|----------|-----------------|--------|
+| 1 | Getting Started | Setup, VS Code, Python fundamentals | ✅ |
+| 2 | Variables & Simple Data Types | Strings, numbers, comments | ✅ |
+| 3 | Introducing Lists | Lists, indexing, basic operations | ✅ |
+| 4 | Working with Lists | Loops, range(), list comprehensions | ✅ |
+| 5 | if Statements | Conditionals, boolean logic | ✅ |
+| 6 | Dictionaries | Key-value pairs, iteration, nesting | ✅ |
+| 7 | User Input & while Loops | Input handling, loop control | ✅ |
+| 8 | Functions | Parameters, returns, modules | 🔲 |
+| 9 | Classes | OOP, inheritance, __init__() | 🔲 |
+| 10 | Files & Exceptions | File I/O, error handling, JSON | 🔲 |
+| 11 | Testing Your Code | pytest, assertions, unit testing | 🔲 |
+
+### PART II: PROJECTS (Capitoli 12-20)
+
+| # | Progetto | Tools | Status |
+|---|----------|-------|--------|
+| 12 | A Ship That Fires Bullets | Pygame | 🔲 |
+| 13 | Aliens! | Pygame | 🔲 |
+| 14 | Scoring | Pygame | 🔲 |
+| 15 | Generating Data | Matplotlib | 🔲 |
+| 16 | Downloading Data | Plotly | 🔲 |
+| 17 | Working with APIs | Requests, Plotly | 🔲 |
+| 18 | Getting Started with Django | Django, databases | 🔲 |
+| 19 | User Accounts | Django authentication | 🔲 |
+| 20 | Styling & Deploying an App | Tailwind CSS, deployment | 🔲 |
 
 ---
 
+## 📖 Legenda Emoji
+
+- ✅ Completato (capitolo letto + esercizi svolti + concetti consolidati)
+- ⏳ In Corso (lettura/studio in progresso)
+- 🔲 Non Iniziato (non ancora toccato)
+
+---
+
+## 🔗 Risorse
+
+- **Official Resources:** https://ehmatthes.github.io/pcc_3e/
+- **GitHub Repo:** https://github.com/ehmatthes/pcc_3e
+- **My Progress:** Capitoli 1-6 completati (Italian edition used for initial foundation)
