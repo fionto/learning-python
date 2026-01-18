@@ -7,7 +7,7 @@
 **Legenda:**  
 - 📖 = Studio su libro
 - 🔍 = Approfondimento concetto
-- 🎥 = Lezioni video breve
+- 📺 = Lezioni video breve
 - 🧑🏼‍🏫 = Lezioni video lunghe
 - 📝 = Esercizi elementari
 - 📐 = Esercizio complicato (progetto)
@@ -26,20 +26,20 @@
 ---
 ## 2025-12-27
 📖 PCC - Environment (Capitolo 1)  
-🎥 PPB - Installation and Setup  
+📺 PPB - Installation and Setup  
 📝 `HelloWorld.py`  
 
 ## 2025-12-28
 📖 PCC - Variables and Simple Data (Capitolo 2)   
-🎥 PPB - Strings  
-🎥 PPB - Integer & Floats  
+📺 PPB - Strings  
+📺 PPB - Integer & Floats  
 🔍 [Stringhe](../03-CONCEPTS/Stringhe.md)  
 📝 Stringhe (13 script)  
 📦 Primo commit
 
 ## 2025-12-29
 📖 PCC - Introducing Lists (Capitolo 3)  
-🎥 PPB - List, Tuples and Sets  
+📺 PPB - List, Tuples and Sets  
 📝 Liste (11 esercizi)  
 🔍 Mutabilità con [esercizio](../02-EXERCISES/02-Lists/2_06_mutabilita.py)  
 🔍 [Liste](../03-CONCEPTS/Liste.md)  
@@ -48,21 +48,21 @@
 ## 2025-12-30
 📖 PCC - Working with lists, `for` Loop (Capitolo 4)  
 📝 `for` (5 script)  
-🎥 PPB - Dictionaries  
+📺 PPB - Dictionaries  
 
 ## 2025-12-31
 📝 `for` (8 script)  
 📐 `SingleRecordParser.py` [[Code Review]](../06-PROJECTS/01-BioParser/02_report_string_data_cleaning.md)  
 🧑🏼‍🏫 CS50P - Functions & Variables [[Lezione 0]](../04-COURSES/CS50P/Lecture00.md)    
 📦 Aggiunto [README.md](../README.md)  
-📦 Aggiunto [BOOK_PROGRESS.md](BOOK_PROGRESS.md)
-📦 Aggiunto [EXERCISES_PROGRESS.md](EXERCISES_PROGRESS.md)
+📦 Aggiunto [BOOK_PROGRESS.md](/09-GARBAGE/old_BOOK_PROGRESS.md)
+📦 Aggiunto [EXERCISES_PROGRESS.md](/09-GARBAGE/old_EXERCISES_PROGRESS.md)
 
 ## 2026-01-01
 📖 PCC - `if` Statements (Capitolo 5)  
 📖 PCC - Dictionaries (Capitolo 6)  
-🎥 PPB - Conditionals & Booleans  
-🎥 PPB - Loops & Iterations  
+📺 PPB - Conditionals & Booleans  
+📺 PPB - Loops & Iterations  
 🧑🏼‍🏫 CS50P - Conditionals [[Lezione 1]](../04-COURSES/CS50P/Lecture01.md)   
 🔍 [Keywords](../03-CONCEPTS/Keywords.md)  
 🔍 [Shadowing](../03-CONCEPTS/Shadowing.md)   
@@ -102,13 +102,22 @@
 🔍 [Slicing](../03-CONCEPTS/Slicing.md)  
 📝 Slicing (7 script)  
 📦 Riorganizzata struttura [📂EXERCISES](../02-EXERCISES)  
-📦 Aggiunto [PIANO_APPRENDIMENTO.md](PIANO_APPRENDIMENTO.md)  
+📦 Aggiunto [PIANO_APPRENDIMENTO.md](/01-DOCS/00_PIANO_APPRENDIMENTO.md)  
 
 ## 2026-01-13
 📖 TP - Funzioni  
 🔰 Cisco PE1 - Intro, Environment (Modulo 1)  
-🔰 Cisco PE1 - Data Types (Modulo 2)  
+🔰 Cisco PE1 - Data Types, Variables, Operators, Basic I/O (Modulo 2)  
 
 ## 2026-01-14
 📐 `AggregatedTelemetryAnalyzer.py` [[Code Review]](../06-PROJECTS/03-AggregatedLogParser/report_claude.md)  
-📦 Aggiunto [LOG.md](LOG.md)
+📦 Aggiunto [LOG.md](/01-DOCS/02_LOGBOOK.md)
+
+## 2026-01-16
+🔰 Cisco PE1 - Boolean Values, Conditional Execution, Loops, Lists, Logical and Bitwise Operations
+
+## 2026-01-17
+📦 Cisco PE1 - Scritte dispense in [📂COURSES/PythonEssentials1](/04-COURSES/PythonEssentials1/)  
+
+## 2026-01-18
+📦 Aggiornata documentazione totale  
