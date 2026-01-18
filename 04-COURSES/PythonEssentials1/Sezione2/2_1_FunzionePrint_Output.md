@@ -20,15 +20,13 @@ Questo è tutto. Una sola riga. Quando eseguite questo programma, vedete:
 Ciao, mondo!
 ```
 
-Questo semplice esempio racchiude già diversi concetti importanti che dovremo approfondire. Ma innanzitutto, congratulatevi con voi stessi. Avete appena scritto un programma che comunica. È piccolo, ma è un inizio. Ogni program amondo, dai più semplici ai più complessi, inizia con la capacità di produrre output.
+Questo semplice esempio racchiude già diversi concetti importanti che dovremo approfondire. Ma innanzitutto, congratulatevi con voi stessi. Avete appena scritto un programma che comunica. È piccolo, ma è un inizio. Ogni programma, dai più semplici ai più complessi, inizia con la capacità di produrre output.
 
 ## 2.1.2 La Funzione print(): Fondamenti
 
 La **funzione** `print()` è uno degli strumenti più fondamentali di Python. Il suo scopo è semplice: prendere le informazioni che le passate e visualizzarle sullo schermo (precisamente, mandarle al flusso di output standard, che solitamente è il vostro terminale o console).
 
-Una funzione in programmazione è come una scatola nera che contiene un insieme di istruzioni già scritte. Voi non dovete sapere come funziona internamente; dovete solo sapere come usarla e cosa aspettarvi come risultato.
-
-Nel caso di `print()`, la "scatola nera" contiene tutte le istruzioni necessarie per prendere un valore e mostrarlo sullo schermo. Senza `print()`, avreste bisogno di scrivere centinaia di righe di codice complesso per ottenere lo stesso risultato.
+Una funzione in programmazione è come una scatola nera che contiene un insieme di istruzioni già scritte. Voi non dovete sapere come funziona internamente; dovete solo sapere come usarla e cosa aspettarvi come risultato. Nel caso di `print()`, la "scatola nera" contiene tutte le istruzioni necessarie per prendere un valore e mostrarlo sullo schermo. Senza `print()`, avreste bisogno di scrivere centinaia di righe di codice complesso per ottenere lo stesso risultato.
 
 ### Come Funziona print()
 
@@ -38,25 +36,17 @@ Quando scrivete:
 print("Ciao, mondo!")
 ```
 
-State essenzialmente dicendo al programma: "Prendi il testo 'Ciao, mondo!' e visualizzalo sullo schermo". Python capisce questo comando, lo esegue, e il testo appare.
-
-Notate che `print` è seguita da parentesi tonde: `()`. Queste parentesi sono essenziali. Indicano che `print` è una funzione, non una variabile. Se scrivete semplicemente `print` senza parentesi, il computer vi mostrerà informazioni sulla funzione stessa, non eseguirà la funzione.
+State essenzialmente dicendo al programma: "Prendi il testo 'Ciao, mondo!' e visualizzalo sullo schermo". Python capisce questo comando, lo esegue, e il testo appare. Notate che `print` è seguita da parentesi tonde: `()`. Queste parentesi sono essenziali. Indicano che `print` è una funzione, non una variabile. Se scrivete semplicemente `print` senza parentesi, il computer vi mostrerà informazioni sulla funzione stessa, non eseguirà la funzione.
 
 ## 2.1.3 Argomenti della Funzione: Cosa Passate al Contenitore
 
-Quando utilizzate una funzione come `print()`, dovete fornirle le informazioni di cui ha bisogno per fare il suo lavoro. Queste informazioni si chiamano **argomenti** (o **parametri**, sebbene i termini siano tecnicalmente distinti).
-
-Nel nostro esempio:
+Quando utilizzate una funzione come `print()`, dovete fornirle le informazioni di cui ha bisogno per fare il suo lavoro. Queste informazioni si chiamano **argomenti** (o **parametri**, sebbene i termini siano tecnicalmente distinti). Nel nostro esempio:
 
 ```python
 print("Ciao, mondo!")
 ```
 
-L'argomento è la stringa `"Ciao, mondo!"`. Gli argomenti si passano inserendo i dati tra le parentesi, separati da virgole se ce ne sono più di uno.
-
-Pensate agli argomenti come istruzioni dettagliate. Se `print()` è una funzione che visualizza testo, gli argomenti dicono **quale** testo visualizzare.
-
-La funzione `print()` è molto flessibile. Potete passarle un numero:
+L'argomento è la stringa `"Ciao, mondo!"`. Gli argomenti si passano inserendo i dati tra le parentesi, separati da virgole se ce ne sono più di uno. Pensate agli argomenti come istruzioni dettagliate. Se `print()` è una funzione che visualizza testo, gli argomenti dicono **quale** testo visualizzare. La funzione `print()` è molto flessibile. Potete passarle un numero:
 
 ```python
 print(42)
@@ -94,9 +84,7 @@ In ogni caso, `print()` prende ciò che gli passate, lo converte in una rapprese
 
 ## 2.1.4 Invocazione della Funzione: Esecuzione dell'Istruzione
 
-Quando scrivete `print("qualcosa")`, state **invocando** la funzione. L'invocazione di una funzione significa: "Esegui le istruzioni all'interno di questa funzione, utilizzando gli argomenti che ho fornito".
-
-Ogni volta che invocate una funzione, il computer:
+Quando scrivete `print("qualcosa")`, state **invocando** la funzione. L'invocazione di una funzione significa: "Esegui le istruzioni all'interno di questa funzione, utilizzando gli argomenti che ho fornito". Ogni volta che invocate una funzione, il computer:
 
 1. Sospende l'esecuzione del resto del programma
 2. Salta al codice della funzione
@@ -178,9 +166,7 @@ Ora approfondiremo come `print()` funziona a un livello più sofisticato.
 
 ### L'Effetto Secondario di print()
 
-Una caratteristica importante di `print()` è che ha un **effetto secondario**. Un effetto secondario è qualcosa che una funzione fa oltre a restituire un valore. Nel caso di `print()`, l'effetto secondario è visualizzare il testo sullo schermo.
-
-Molte funzioni restituiscono un valore ma non hanno effetti secondari. Ad esempio, la funzione `len()` restituisce la lunghezza di una stringa, ma non fa nulla sullo schermo. `print()`, d'altra parte, ha un effetto secondario visibile ma restituisce anche un valore—anche se quel valore è `None`.
+Una caratteristica importante di `print()` è che ha un **effetto secondario**. Un effetto secondario è qualcosa che una funzione fa oltre a restituire un valore. Nel caso di `print()`, l'effetto secondario è visualizzare il testo sullo schermo. Molte funzioni restituiscono un valore ma non hanno effetti secondari. Ad esempio, la funzione `len()` restituisce la lunghezza di una stringa, ma non fa nulla sullo schermo. `print()`, d'altra parte, ha un effetto secondario visibile ma restituisce anche un valore—anche se quel valore è `None`.
 
 ```python
 # len() restituisce un valore senza effetti secondari
@@ -219,9 +205,7 @@ x = 5                # Istruzione 2: assegna 5 a x
 print(x)             # Istruzione 3: invoca print() con il valore di x
 ```
 
-In Python, le istruzioni sono generalmente separate da interruzioni di riga. Una interruzione di riga segna la fine di un'istruzione e l'inizio della successiva.
-
-Tuttavia, potete anche mettere più istruzioni sulla stessa riga separandole con un punto e virgola:
+In Python, le istruzioni sono generalmente separate da interruzioni di riga. Una interruzione di riga segna la fine di un'istruzione e l'inizio della successiva. Tuttavia, potete anche mettere più istruzioni sulla stessa riga separandole con un punto e virgola:
 
 ```python
 x = 5; y = 10; print(x + y)  # Tre istruzioni sulla stessa riga
@@ -231,9 +215,7 @@ Ma questa pratica è generalmente sconsigliata perché riduce la leggibilità. P
 
 ## 2.1.8 Caratteri di Escape e Newline di Python
 
-Uno dei concetti più importanti quando lavorate con `print()` è come gestire caratteri speciali e formattazione. A volte, volete che il vostro output contenga cose che non potete digitare facilmente sulla tastiera, come un'interruzione di riga (newline) o una tabulazione.
-
-Python utilizza il sistema dei **caratteri di escape**. Un carattere di escape è una sequenza di due caratteri che comincia con una barra rovesciata `\` e rappresenta un carattere speciale.
+Uno dei concetti più importanti quando lavorate con `print()` è come gestire caratteri speciali e formattazione. A volte, volete che il vostro output contenga cose che non potete digitare facilmente sulla tastiera, come un'interruzione di riga (newline) o una tabulazione. Python utilizza il sistema dei **caratteri di escape**. Un carattere di escape è una sequenza di due caratteri che comincia con una barra rovesciata `\` e rappresenta un carattere speciale.
 
 ### L'Escape Newline: \n
 
@@ -336,9 +318,7 @@ Mi ha detto: "Ciao!"
 
 ## 2.1.9 Utilizzo di Più Argomenti
 
-Finora abbiamo passato un solo argomento a `print()`. Ma `print()` è molto più potente quando usata con più argomenti.
-
-Potete passare più argomenti a `print()` separandoli con virgole:
+Finora abbiamo passato un solo argomento a `print()`. Ma `print()` è molto più potente quando usata con più argomenti. Potete passare più argomenti a `print()` separandoli con virgole:
 
 ```python
 print("Ciao", "mondo", "!")
@@ -349,9 +329,7 @@ Output:
 Ciao mondo !
 ```
 
-Notate che `print()` ha automaticamente inserito uno spazio tra gli argomenti. Per impostazione predefinita, `print()` separa gli argomenti con uno spazio.
-
-Potete stampare numeri, stringhe, variabili, tutto insieme:
+Notate che `print()` ha automaticamente inserito uno spazio tra gli argomenti. Per impostazione predefinita, `print()` separa gli argomenti con uno spazio. Potete stampare numeri, stringhe, variabili, tutto insieme:
 
 ```python
 nome = "Alice"
@@ -372,9 +350,7 @@ Questo è enormemente utile per creare output formattato e leggibile.
 
 ## 2.1.10 Argomenti Posizionali
 
-Gli argomenti che abbiamo visto finora sono **argomenti posizionali**. Il loro significato dipende dalla loro posizione (ordine) all'interno della lista di argomenti.
-
-In `print("Ciao", "mondo")`, il primo argomento è "Ciao" e il secondo è "mondo". Se invertite l'ordine:
+Gli argomenti che abbiamo visto finora sono **argomenti posizionali**. Il loro significato dipende dalla loro posizione (ordine) all'interno della lista di argomenti. In `print("Ciao", "mondo")`, il primo argomento è "Ciao" e il secondo è "mondo". Se invertite l'ordine:
 
 ```python
 print("mondo", "Ciao")
@@ -398,9 +374,7 @@ print(1, 2, 3, 4, 5)  # Stampa: 1 2 3 4 5
 
 ## 2.1.11 Argomenti Nominati (Keyword Arguments)
 
-Oltre agli argomenti posizionali, `print()` accetta anche **argomenti nominati** (keyword arguments). Un argomento nominato viene specificato usando il nome del parametro seguito da un segno di uguale e il valore.
-
-I due argomenti nominati più utili di `print()` sono:
+Oltre agli argomenti posizionali, `print()` accetta anche **argomenti nominati** (keyword arguments). Un argomento nominato viene specificato usando il nome del parametro seguito da un segno di uguale e il valore. I due argomenti nominati più utili di `print()` sono:
 
 ### sep: Il Separatore
 
@@ -442,9 +416,7 @@ Output:
 ABC
 ```
 
-Senza `end=""`, ogni invocazione di `print()` creerebbe una nuova riga. Cambiando `end`, potete controllare esattamente come termina l'output.
-
-Un altro esempio:
+Senza `end=""`, ogni invocazione di `print()` creerebbe una nuova riga. Cambiando `end`, potete controllare esattamente come termina l'output. Un altro esempio:
 
 ```python
 print("Inserisci il tuo nome:", end=" ")  # Stampa il prompt senza newline
@@ -565,7 +537,7 @@ Città: Milano
 Paese: Italia
 ```
 
-Questo va bene, ma potete renderlo più leggibile con uno spazi coerente.
+Questo va bene, ma potete renderlo più leggibile con una tabulazione.
 
 ### Tecnica 1: Usare Tab per l'Allineamento
 
