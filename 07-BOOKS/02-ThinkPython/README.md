@@ -13,23 +13,6 @@ Pensare in Python introduce la programmazione come forma di pensiero prima che c
 
 ---
 
-## 🛠️ Strumenti Coperti
-
-| Strumento | Capitoli | Descrizione |
-|-----------|----------|-------------|
-| **Jupyter Notebooks** | Tutti | Interactive code environments |
-| **Turtle Graphics** | Vari | Visual programming & drawing |
-| **doctest** | 7, 13 | Inline testing in docstrings |
-| **unittest** | 13 | Unit testing framework |
-| **Regular Expressions** | 8 | Pattern matching and text processing |
-| **File I/O** | 13 | Reading/writing files and databases |
-| **YAML** | 13 | Data serialization format |
-| **shelve** | 13 | Python object persistence |
-| **ChatGPT / AI Tools** | Tutti | LLM-assisted learning & debugging |
-| **Debugger (pdb)** | 1-19 | Interactive debugging tools |
-
----
-
 ## 📚 Struttura
 
 | # | Capitolo | Focus Principale | Status |
@@ -59,6 +42,23 @@ Pensare in Python introduce la programmazione come forma di pensiero prima che c
 - ✅ Completato (capitolo letto + esercizi svolti + concetti assimilati)
 - ⏳ In Corso (studio attivo in progresso)
 - 🔲 Non Iniziato (ancora da leggere)
+
+---
+
+## 🛠️ Strumenti Coperti
+
+| Strumento | Capitoli | Descrizione |
+|-----------|----------|-------------|
+| **Jupyter Notebooks** | Tutti | Interactive code environments |
+| **Turtle Graphics** | Vari | Visual programming & drawing |
+| **doctest** | 7, 13 | Inline testing in docstrings |
+| **unittest** | 13 | Unit testing framework |
+| **Regular Expressions** | 8 | Pattern matching and text processing |
+| **File I/O** | 13 | Reading/writing files and databases |
+| **YAML** | 13 | Data serialization format |
+| **shelve** | 13 | Python object persistence |
+| **ChatGPT / AI Tools** | Tutti | LLM-assisted learning & debugging |
+| **Debugger (pdb)** | 1-19 | Interactive debugging tools |
 
 ---
 

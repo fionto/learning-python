@@ -1,6 +1,5 @@
 # Python Study Logbook 🐍
 
-**Autore:** Matteo  
 **Periodo di studio:** Dicembre 2025 – [in corso]  
 **Tags:** #python #programmazione #logbook #apprendimento  
 

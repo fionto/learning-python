@@ -13,23 +13,6 @@ Un'introduzione pratica a Python per principianti assoluti. La prima metà copre
 
 ---
 
-## 🛠️ Strumenti Coperti
-
-| Strumento | Capitoli | Descrizione |
-|-----------|----------|-------------|
-| **VS Code** | 1, Appendix B | Text editor and IDE setup |
-| **pytest** | 11 | Testing framework for code verification |
-| **Pygame** | 12-14 | 2D game development library |
-| **Matplotlib** | 15, Appendix D | Static data visualization |
-| **Plotly** | 16-17 | Interactive data visualization |
-| **Requests API** | 17 | HTTP library for API calls |
-| **Django** | 18-20 | Web framework for full-stack apps |
-| **Git** | Appendix D | Version control and deployment |
-| **pathlib** | 10 | Modern file path handling |
-| **Tailwind CSS** | 20 | CSS framework for styling |
-
----
-
 ## 📚 Struttura
 
 ### PART I: BASICS (Capitoli 1-11)
@@ -69,6 +52,23 @@ Un'introduzione pratica a Python per principianti assoluti. La prima metà copre
 - ✅ Completato (capitolo letto + esercizi svolti + concetti consolidati)
 - ⏳ In Corso (lettura/studio in progresso)
 - 🔲 Non Iniziato (non ancora toccato)
+
+---
+
+## 🛠️ Strumenti Coperti
+
+| Strumento | Capitoli | Descrizione |
+|-----------|----------|-------------|
+| **VS Code** | 1, Appendix B | Text editor and IDE setup |
+| **pytest** | 11 | Testing framework for code verification |
+| **Pygame** | 12-14 | 2D game development library |
+| **Matplotlib** | 15, Appendix D | Static data visualization |
+| **Plotly** | 16-17 | Interactive data visualization |
+| **Requests API** | 17 | HTTP library for API calls |
+| **Django** | 18-20 | Web framework for full-stack apps |
+| **Git** | Appendix D | Version control and deployment |
+| **pathlib** | 10 | Modern file path handling |
+| **Tailwind CSS** | 20 | CSS framework for styling |
 
 ---
 

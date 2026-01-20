@@ -9,7 +9,7 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course**,
   - Pensare in Python: Capitolo 3
 - **Esercizi**: 80+ completati
 - **Progetti**: 3 completati
-- **Inizio**: 27 dicembre 2024
+- **Inizio**: 27 dicembre 2025
 - **Ultimo aggiornamento**: 18 Gennaio 2026
 
 ## 📁 Struttura del Progetto
