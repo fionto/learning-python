@@ -19,53 +19,6 @@
 # Una lista di stringhe nel formato: "SENSOR_ID|TEMPERATURA|UMIDITA|TIMESTAMP"
 # Esempio: "SENS_01|22.5|45.3|14:30"
 
-# FUNZIONE 3: remove_anomalies()
-# --------------------------------
-# Parametri:
-#   - data_list: lista di dizionari
-#   - key: quale metrica controllare ('temp' o 'humidity')
-#   - threshold: numero di deviazioni standard (default=2)
-#
-# Comportamento:
-#   - Calcolare media e deviazione standard dei dati validi
-#   - Rimuovere record dove il valore è oltre threshold deviazioni std dalla media
-#   - Restituire lista filtrata
-#   - Stampare numero di anomalie rimosse
-#
-# Formula deviazione standard:
-#   1. Calcola media
-#   2. Per ogni valore: (valore - media)^2
-#   3. Fai media dei quadrati
-#   4. Prendi radice quadrata
-#
-# Suggerimento: 
-#   - Puoi usare math.sqrt() oppure x ** 0.5
-
-
-# FUNZIONE 4: main()
-# ------------------
-# Coordina il flusso:
-#   1. Ricevi lista di stringhe di sensori
-#   2. Valida e converte ogni stringa
-#   3. Calcola statistiche su temperatura PRIMA delle anomalie
-#   4. Rimuovi anomalie da temperatura
-#   5. Calcola statistiche su temperatura DOPO le anomalie
-#   6. Stampa report con confronti
-#
-# Output atteso (formato):
-#   """
-#   === SENSOR DATA REPORT ===
-#   
-#   STATISTICS BEFORE ANOMALY REMOVAL:
-#   Temperature - Avg: XX.X°C, Min: XX.X°C, Max: XX.X°C, Records: N
-#   
-#   Anomalies removed: N
-#   
-#   STATISTICS AFTER ANOMALY REMOVAL:
-#   Temperature - Avg: XX.X°C, Min: XX.X°C, Max: XX.X°C, Records: N
-#   """
-
-
 # ============================================================================
 # DATI DI TEST (copia-incolla per testare)
 # ============================================================================
@@ -83,7 +36,62 @@ test_data = [
     "SENS_10|24.1|44.5|14:30",
 ]
 
-def is_valid_float(value: str) -> bool:    
+MEASURED_QUANTITIES = {'temp', 'humidity'}
+
+def calculate_mean_std(data: list[float]) -> tuple[float, float]:
+    """
+    Calcola media e deviazione standard della popolazione.
+
+    Args:
+        data: Una lista di numeri (int o float).
+
+    Returns:
+        Una tupla contenente (media, deviazione_standard).
+        Restituisce (0.0, 0.0) in caso di errore critico.
+    """
+    
+    # 1. Controllo che l'input sia una lista
+    if type(data) != list:
+        print("Errore calcolo dev_std: l'input deve essere una lista.")
+        return 0.0, 0.0
+
+    # 2. Controllo che ci siano elementi per evitare divisioni per zero
+    if len(data) == 0:
+        print("Errore calcolo dev_std: la lista è vuota.")
+        return 0.0, 0.0
+
+    # --- Inizio del calcolo ---
+    
+    n = len(data)
+    mean = sum(data) / n
+    
+    # Caso limite: se c'è un solo elemento, la dispersione è zero
+    if n < 2:
+        print("Avviso: con un solo valore la deviazione standard è 0.0.")
+        return mean, 0.0
+    
+    # Calcolo scarti quadratici
+    squared_diffs = [(x - mean) ** 2 for x in data]
+    
+    # Varianza e Deviazione Standard
+    variance = sum(squared_diffs) / n
+    std_dev = variance ** 0.5
+    
+    return mean, std_dev
+
+def is_valid_float(value: str) -> bool:
+    """
+    Verifica se una stringa può essere convertita in un numero decimale (float).
+    
+    La funzione valida la stringa controllando manualmente la presenza di segni,
+    punti decimali e cifre numeriche, senza l'uso di blocchi try/except.
+
+    Args:
+        value: La stringa da analizzare.
+
+    Returns:
+        True se la stringa è un formato numerico valido, False altrimenti.
+    """
     value = value.strip()
 
     # Gestisce il segno opzionale all'inizio
@@ -103,6 +111,32 @@ def is_valid_float(value: str) -> bool:
             return False    
     return True
 
+def validate_key(key: str) -> tuple[str, bool]:
+    """
+    Normalizza una chiave e ne verifica la validità.
+
+    Args:
+        key: La stringa che rappresenta la chiave da validare.
+
+    Returns:
+        Una tupla (chiave_pulita, stato_validazione).
+        - chiave_pulita: La stringa senza spazi bianchi e in minuscolo.
+        - stato_validazione: True se la chiave è valida, False altrimenti.
+    """
+
+    # 1. Pulizia della stringa (rimozione spazi e normalizzazione)
+    clean_key = key.strip().lower()
+
+    # 2. Controllo validità (esempio: non deve essere vuota)
+    if not clean_key:
+        return "", False
+    
+    # 3. Controllo che siano nel set di stringhe accettate
+    if clean_key not in MEASURED_QUANTITIES:
+        return "", False
+    
+    return clean_key, True
+    
 # FUNZIONE 1: validate_and_convert()
 # ------------------------------------
 # Parametri:
@@ -138,12 +172,14 @@ def validate_and_convert(sensor_string: str) -> dict | None:
     
     # Early return: se numero campi errato, non continuare
     if len(fields) != 4:
+        print("Errore validate_and_convert: numero campi errato.")
         return None
     
     sensor_id, temp_str, humidity_str, time_str = fields
     
     # Early return: se non validi come float
     if not (is_valid_float(temp_str) and is_valid_float(humidity_str)):
+        print("Errore validate_and_convert: campo temp o humidity non è un float.")
         return None
     
     temp = float(temp_str)
@@ -151,6 +187,7 @@ def validate_and_convert(sensor_string: str) -> dict | None:
 
     # Early return: se fuori range
     if not (-50 <= temp <= 150 and 0 <= humidity <= 100):
+        print("Errore validate_and_convert: campo temp o humidity fuori range.")
         return None
     
     # Solo qui, al fondo, il caso di successo
@@ -175,6 +212,144 @@ def validate_and_convert(sensor_string: str) -> dict | None:
 # Vincoli:
 #   - Usare funzioni built-in (sum, min, max, len)
 #   - Gestire lista vuota (restituire None)
+def calculate_statistics(data_list: list[dict], key: str) -> dict | None:
+    """Calcola statistiche su dati validi.
     
-for data in test_data:
-    print(validate_and_convert(data))
+    Args:
+        data_list: Lista di dizionari (output da validate_and_convert)
+        key: 'temp' o 'humidity'
+    
+    Returns:
+        Dizionario con {avg, min, max, count} se dati presenti
+        None se lista vuota o nessun dato valido
+    """
+
+    clean_key, valid_key = validate_key(key)
+
+    # Early return: se key sbagliata
+    if not valid_key:
+        return None
+    
+    # Filtra None E estrai valori in una riga (list comprehension completa)
+    values = [reading[clean_key] for reading in data_list if reading]
+
+    # Early return: se nessun dato valido
+    if not values:
+        return None    
+    
+    count = len(values)
+
+    return {
+        'avg': round(sum(values) / count, 2), 
+        'v_min': min(values), 
+        'v_max': max(values), 
+        'count': count,
+        }
+
+# FUNZIONE 3: remove_anomalies()
+# --------------------------------
+# Parametri:
+#   - data_list: lista di dizionari
+#   - key: quale metrica controllare ('temp' o 'humidity')
+#   - threshold: numero di deviazioni standard (default=2)
+#
+# Comportamento:
+#   - Calcolare media e deviazione standard dei dati validi
+#   - Rimuovere record dove il valore è oltre threshold deviazioni std dalla media
+#   - Restituire lista filtrata
+#   - Stampare numero di anomalie rimosse
+#
+# Formula deviazione standard:
+#   1. Calcola media
+#   2. Per ogni valore: (valore - media)^2
+#   3. Fai media dei quadrati
+#   4. Prendi radice quadrata
+#
+def remove_anomalies(data_list: list[dict], key: str, threshold: float = 2) -> list:
+    """
+    Rimuove i record i cui valori cadono fuori dall'intervallo [media ± threshold * std].
+
+    Args:
+    data_list: Lista di dizionari (output da validate_and_convert)
+    key: 'temp' o 'humidity'
+    threshold: numero di deviazioni standard (default=2)
+    
+    Returns:
+        Lista filtrata di dizionari
+    """
+
+    clean_key, valid_key = validate_key(key)
+
+    # Early return: se key sbagliata
+    if not valid_key:
+        return []
+
+    valid_data = [reading for reading in data_list if reading]
+
+    # Early return: se nessun dato valido
+    if not valid_data:
+        return []
+    
+    values = [reading[clean_key] for reading in valid_data]
+    mean, std = calculate_mean_std(values)
+    
+    filtered_list = [reading for reading in valid_data if mean - (std * threshold) <= reading[clean_key] <= mean + (std * threshold)]
+
+    print(f"Anomalies removed: {len(valid_data) - len(filtered_list)}")
+
+    return filtered_list
+
+
+# FUNZIONE 4: main()
+# ------------------
+# Coordina il flusso:
+#   1. Ricevi lista di stringhe di sensori
+#   2. Valida e converte ogni stringa
+#   3. Calcola statistiche su temperatura PRIMA delle anomalie
+#   4. Rimuovi anomalie da temperatura
+#   5. Calcola statistiche su temperatura DOPO le anomalie
+#   6. Stampa report con confronti
+#
+# Output atteso (formato):
+#   """
+#   === SENSOR DATA REPORT ===
+#   
+#   STATISTICS BEFORE ANOMALY REMOVAL:
+#   Temperature - Avg: XX.X°C, Min: XX.X°C, Max: XX.X°C, Records: N
+#   
+#   Anomalies removed: N
+#   
+#   STATISTICS AFTER ANOMALY REMOVAL:
+#   Temperature - Avg: XX.X°C, Min: XX.X°C, Max: XX.X°C, Records: N
+#   """
+
+def main():
+    data_list = []
+    for signal in test_data:
+        data_list.append(validate_and_convert(signal))
+    
+    temp_stats = calculate_statistics(data_list, 'temp')
+
+    if temp_stats:
+        print("=== SENSOR DATA REPORT ===")
+        print(f"Temperature - Avg: {temp_stats['avg']}, "
+              f"Min: {temp_stats['v_min']}, "
+              f"Max: {temp_stats['v_max']}, "
+              f"Records: {temp_stats['count']}")    
+    else:
+        print("No valid data is present")
+    
+    filtered_list = (remove_anomalies(data_list, 'temp'))
+
+    new_temp_stats = calculate_statistics(filtered_list, 'temp')
+
+    if new_temp_stats:
+        print("=== SENSOR DATA REPORT ===")
+        print(f"Temperature - Avg: {new_temp_stats['avg']}, "
+              f"Min: {new_temp_stats['v_min']}, "
+              f"Max: {new_temp_stats['v_max']}, "
+              f"Records: {new_temp_stats['count']}")    
+    else:
+        print("No valid data is present")
+
+main()

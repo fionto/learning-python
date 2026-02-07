@@ -27,10 +27,6 @@
 # VINCOLI TECNICI OBBLIGATORI:
 # - Utilizzare lo structural pattern matching (match/case) per gestire la 
 #   logica di assegnazione della Zona Geografica.
-# - Utilizzare lo structural pattern matching (match/case) con l'uso di "guards" 
-#   (if nel case) per determinare la Categoria Peso.
-# - Implementare almeno due funzioni helper separate: una per il calcolo del 
-#   costo monetario e una per la determinazione della categoria/zona.
 # - NON modificare i dati originali nella lista 'spedizioni_in_entrata'.
 # - NO blocchi try/except.
 #
@@ -56,6 +52,137 @@ spedizioni_in_entrata = [
     {"id_ordine": "A009", "dest": "DE", "kg": 11.0, "fragile": True}
 ]
 
+# SVOLGIMENTO:
+
+EUROPA = {
+    "AD",  # Andorra
+    "AL",  # Albania
+    "AM",  # Armenia
+    "AT",  # Austria
+    "AZ",  # Azerbaigian
+    "BA",  # Bosnia ed Erzegovina
+    "BE",  # Belgio
+    "BG",  # Bulgaria
+    "CH",  # Svizzera
+    "CY",  # Cipro
+    "CZ",  # Repubblica Ceca
+    "DE",  # Germania
+    "DK",  # Danimarca
+    "EE",  # Estonia
+    "ES",  # Spagna
+    "FI",  # Finlandia
+    "FR",  # Francia
+    "GB",  # Regno Unito
+    "GE",  # Georgia
+    "GR",  # Grecia
+    "HR",  # Croazia
+    "HU",  # Ungheria
+    "IE",  # Irlanda
+    "IS",  # Islanda
+    "LI",  # Liechtenstein
+    "LT",  # Lituania
+    "LU",  # Lussemburgo
+    "LV",  # Lettonia
+    "MC",  # Monaco
+    "MD",  # Moldavia
+    "ME",  # Montenegro
+    "MK",  # Macedonia del Nord
+    "MT",  # Malta
+    "NL",  # Paesi Bassi
+    "NO",  # Norvegia
+    "PL",  # Polonia
+    "PT",  # Portogallo
+    "RO",  # Romania
+    "RS",  # Serbia
+    "SE",  # Svezia
+    "SI",  # Slovenia
+    "SK",  # Slovacchia
+    "SM",  # San Marino
+    "TR",  # Turchia
+    "UA",  # Ucraina
+    "UK",  # Regno Unito
+}
+
+def define_zone(spedizione: dict) -> str:
+    """
+    Determina la macro-zona geografica della destinazione finale
+    a partire dal codice paese ISO 3166-1 alpha-2.
+
+    Args:
+        destinazione (dict): Dizionario contenente la chiave 'dest'
+            con il codice paese a due caratteri.
+
+    Returns:
+        str: Macro-zona geografica ("Nazionale", "Europa", "Extra-UE")
+            oppure "ERROR" se il codice non è valido.
+    """
+    # Normalizzazione del codice paese (rimozione spazi, uppercase)
+    destinazione = spedizione["dest"].strip().upper()
+
+    # Validazione di base del codice ISO (2 lettere alfabetiche)
+    if len(destinazione) == 2 and destinazione.isalpha():
+        match destinazione:
+            case "IT":
+                return "Nazionale"
+            case _ if destinazione in EUROPA:
+                return "Europa"
+            case _:
+                return "Extra-UE"
+    else:
+        # Codice paese mancante o non conforme allo standard ISO
+        return "ERROR"
+    
+def define_weight(spedizione: dict) -> str:
+    """
+    Determina la categoria di peso di una spedizione in base al valore
+    espresso in chilogrammi.
+
+    Le categorie di peso sono:
+    - "Small"  → peso ≤ 2 kg
+    - "Medium" → 2 kg < peso ≤ 10 kg
+    - "Large"  → peso > 10 kg
+
+    Args:
+        spedizione (dict): Dizionario contenente la chiave 'kg'
+            con il peso della spedizione espresso come stringa.
+
+    Returns:
+        str: Categoria di peso assegnata ("Small", "Medium", "Large")
+             oppure "ERROR" se il valore del peso non è valido.
+    """
+    # Estrazione e normalizzazione del peso
+    peso = (spedizione["kg"])
+
+    # gestione peso negativo
+    if peso < 0:
+        return "ERROR: peso negativo non valido"
+
+    # Classificazione per fasce di peso
+    if peso <= 2:
+        return "Small"
+    elif peso <= 10:
+        return "Medium"
+    else:
+        return "Large"
+    
+def calculate_shipment_cost(spedizione: dict):
+    """
+    Determina il costo della spedizione a seconda della zona di destinazione
+    
+    Args:
+        spedizione (dict): Dizionario contenente tutte le informazioni
+        relative alla spedizione
+
+    Returns:
+        float: costo per ogni singola spedizione
+    """
+
+    pass
+
+for spedizione in spedizioni_in_entrata:
+    print(f"{define_zone(spedizione)}, {define_weight(spedizione)}")
+
+
 # OUTPUT ATTESO (Valori indicativi calcolati)
 # Il risultato finale dovrà essere un dizionario simile a questo:
 # {
@@ -63,5 +190,3 @@ spedizioni_in_entrata = [
 #    'Europa': {'Small': 14.0, 'Medium': 24.5, 'Large': 49.5},
 #    'Extra-UE': {'Small': 27.5, 'Medium': 41.0, 'Large': 112.5}
 # }
-
-# SVOLGIMENTO:
