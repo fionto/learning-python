@@ -12,6 +12,7 @@
 - 📐 = Esercizio complicato (progetto)
 - 💭 = Esercizio Q&A (teoria)
 - 🔰 = Studio per badges e certificazioni
+- 🛠️ = Uso di software addizionali
 - 📦 = GitHub
 
 **Abbreviazioni:**  
@@ -104,7 +105,7 @@
 📦 Aggiunto [PIANO_APPRENDIMENTO.md](/01-DOCS/00_PIANO_APPRENDIMENTO.md)  
 
 ## 2026-01-13
-📖 TP - Funzioni  
+📖 TP - Funzioni (Capitolo 3)
 🔰 Cisco PE1 - Intro, Environment (Modulo 1)  
 🔰 Cisco PE1 - Data Types, Variables, Operators, Basic I/O (Modulo 2)  
 
@@ -120,3 +121,38 @@
 
 ## 2026-01-18
 📦 Aggiornata documentazione totale  
+
+## 2026-01-18
+📖 TP - Funzioni (Capitolo 3)
+📖 PCC - Functions (Capitolo 8)
+🛠️ Jupyter Notebook - Installazione e primo uso
+
+## 2026-01-23
+🔍 [`match` `case`](/03-CONCEPTS/match_case.md)
+📝 Esercizi `match` `case` generati con Claude (3 script)
+
+## 2026-01-25
+📖 TP - Funzioni & Interfacce (Capitolo 4)
+🛠️ Jupyter Notebook - Studio libro su capitoli in `.ipynb`
+
+## 2026-01-31
+📝 Esercizi `match` `case` generati con Claude (4 script)
+
+## 2026-02-01
+📖 PCC - Functions (Capitolo 8)
+📝 Esercizi libro PCC (5 script)
+
+## 2026-02-04
+📖 PCC - Classes (Capitolo 9)
+📝 Esercizi libro PCC (2 script)
+
+## 2026-02-05
+📖 PCC - Classes (Capitolo 9)
+📝 Esercizi libro PCC (2 script)
+📖 TP - Istruzioni condizionali e Ricorsione (Capitolo 5)
+
+## 2026-02-06
+📝 Esercizi funzioni livello medio (2 script) con [Code Review](/08-VALIDATION/09-Functions/09_data_validation_codereview.md)
+
+## 2026-02-08
+📝 Esercizi `match` `case` livello medio (1 script) con [Code Review](/08-VALIDATION/03-Conditionals/03_02_logistica_codereview_claude.md)
