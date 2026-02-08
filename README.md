@@ -5,12 +5,12 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course**,
 ## 📊 Progresso Attuale
 
 - **Libri**
-  - Python Crash Course: Capitolo 7
-  - Pensare in Python: Capitolo 3
-- **Esercizi**: 80+ completati
+  - Python Crash Course: Capitolo 9 ⏳
+  - Pensare in Python: Capitolo 6 ⏳
+- **Esercizi**: 90+ completati
 - **Progetti**: 3 completati
 - **Inizio**: 27 dicembre 2025
-- **Ultimo aggiornamento**: 18 Gennaio 2026
+- **Ultimo aggiornamento**: 08 Febbraio 2026
 
 ## 📁 Struttura del Progetto
 
@@ -23,14 +23,17 @@ learning-python/
 │   ├── 00-Intro/                        # (1 script)
 │   ├── 01-Variables/                    # Stringhe, numbers, f-strings — (13 script)
 │   ├── 02-Lists/                        # CRUD, mutabilità, slicing base — (11 script)
-│   ├── 03-Conditionals/                 # Booleani, if/elif/else, match/case — (7 script)
+│   ├── 03-Conditionals/                 # Booleani, if/elif/else — (7 script)
+│   │   └── 03_02_MatchCase/             # Pattern Matching: costrutto match/case — (5 script) ⏳
 │   ├── 04-Loops/
-│   │   ├── 04_01_ForLoops/             # range(), iterazione, list comprehension — (15 script)
-│   │   └── 04_02_WhileLoops/           # Input validation, statistica, queue mgmt — (9 script)
+│   │   ├── 04_01_ForLoops/              # range(), iterazione, list comprehension — (15 script)
+│   │   └── 04_02_WhileLoops/            # Input validation, statistica, queue mgmt — (9 script)
 │   ├── 05-Slicing/                      # Sintassi completa, negative indices, step — (8 script)
 │   ├── 06-Dictionaries/                 # Key-value, CRUD, nesting, .get() — (10 script)
 │   ├── 07-Tuples & Sets/                # Immutabili, set operations — (📋 in prep)
-│   └── 08-Comprehensions/               # List/dict/set, filtering, nested — (8 script)
+│   ├── 08-Comprehensions/               # List/dict/set, filtering, nested — (8 script)
+│   ├── 09-Functions/                    # Defining, passing, returning,  — (5 script) ⏳
+│   └── 11-OOP/                          # Classes — (2 script) ⏳
 │
 ├── 🔍 03-CONCEPTS/                     # Approfondimenti autonomi, non presenti sul libro
 │
@@ -40,7 +43,8 @@ learning-python/
 │   └── CoreySchafer/                    # 📺 YouTube tutorial videos
 │
 ├── 🛠️ 05-TOOLS/                        # Strumenti e configurazioni
-│   └── Git/                            # Guide e workflow Git
+│   ├── Git/                             # Guide e workflow Git
+│   └── Jupyter/                         # Guide e workflow Jupyter Notebooks
 │
 ├── 📐 06-PROJECTS/                     # Esercizi a più alta difficoltà
 │
