@@ -54,56 +54,48 @@ spedizioni_in_entrata = [
 
 # SVOLGIMENTO:
 
-EUROPA = {
-    "AD",  # Andorra
-    "AL",  # Albania
-    "AM",  # Armenia
+# Definizioni costanti per dizionario di riepilogo
+# COSTANTI: Grandezze pacchi
+SMALL = 'Small'
+MEDIUM = 'Medium'
+LARGE = 'Large'
+# COSTANTI: Zone di destinazione
+LOCAL = 'Nazionale'
+CONTINENTAL = 'Europa'
+INTERCONTINENTAL = 'Extra-UE'
+
+# Creo set per destinazioni EUROPEAN-UNION (mia discrezione), tutto il resto è "Nazionale" o "Extra-UE"
+EUROPEAN_UNION = {
     "AT",  # Austria
-    "AZ",  # Azerbaigian
-    "BA",  # Bosnia ed Erzegovina
     "BE",  # Belgio
     "BG",  # Bulgaria
-    "CH",  # Svizzera
+    "HR",  # Croazia
     "CY",  # Cipro
     "CZ",  # Repubblica Ceca
-    "DE",  # Germania
     "DK",  # Danimarca
     "EE",  # Estonia
-    "ES",  # Spagna
     "FI",  # Finlandia
     "FR",  # Francia
-    "GB",  # Regno Unito
-    "GE",  # Georgia
+    "DE",  # Germania
     "GR",  # Grecia
-    "HR",  # Croazia
     "HU",  # Ungheria
     "IE",  # Irlanda
-    "IS",  # Islanda
-    "LI",  # Liechtenstein
+    "IT",  # Italia
+    "LV",  # Lettonia
     "LT",  # Lituania
     "LU",  # Lussemburgo
-    "LV",  # Lettonia
-    "MC",  # Monaco
-    "MD",  # Moldavia
-    "ME",  # Montenegro
-    "MK",  # Macedonia del Nord
     "MT",  # Malta
     "NL",  # Paesi Bassi
-    "NO",  # Norvegia
     "PL",  # Polonia
     "PT",  # Portogallo
     "RO",  # Romania
-    "RS",  # Serbia
-    "SE",  # Svezia
-    "SI",  # Slovenia
     "SK",  # Slovacchia
-    "SM",  # San Marino
-    "TR",  # Turchia
-    "UA",  # Ucraina
-    "UK",  # Regno Unito
+    "SI",  # Slovenia
+    "ES",  # Spagna
+    "SE",  # Svezia
 }
 
-def define_zone(spedizione: dict) -> str:
+def define_zone(destinazione: str) -> str:
     """
     Determina la macro-zona geografica della destinazione finale
     a partire dal codice paese ISO 3166-1 alpha-2.
@@ -117,22 +109,23 @@ def define_zone(spedizione: dict) -> str:
             oppure "ERROR" se il codice non è valido.
     """
     # Normalizzazione del codice paese (rimozione spazi, uppercase)
-    destinazione = spedizione["dest"].strip().upper()
+    destinazione = destinazione.strip().upper()
 
     # Validazione di base del codice ISO (2 lettere alfabetiche)
     if len(destinazione) == 2 and destinazione.isalpha():
         match destinazione:
             case "IT":
-                return "Nazionale"
-            case _ if destinazione in EUROPA:
-                return "Europa"
+                return LOCAL
+            case _ if destinazione in EUROPEAN_UNION:
+                return CONTINENTAL
             case _:
-                return "Extra-UE"
+                return INTERCONTINENTAL
     else:
-        # Codice paese mancante o non conforme allo standard ISO
-        return "ERROR"
+        # TODO: Implementare gestione errori formale (attualmente non supportata).
+        # non ho ancora affrontato i blocchi try/except.
+        return "ERROR_dz"
     
-def define_weight(spedizione: dict) -> str:
+def define_weight(peso: float) -> str:
     """
     Determina la categoria di peso di una spedizione in base al valore
     espresso in chilogrammi.
@@ -150,22 +143,21 @@ def define_weight(spedizione: dict) -> str:
         str: Categoria di peso assegnata ("Small", "Medium", "Large")
              oppure "ERROR" se il valore del peso non è valido.
     """
-    # Estrazione e normalizzazione del peso
-    peso = (spedizione["kg"])
-
     # gestione peso negativo
     if peso < 0:
-        return "ERROR: peso negativo non valido"
+        # TODO: Implementare gestione errori formale (attualmente non supportata).
+        # non ho ancora affrontato i blocchi try/except.
+        return "ERROR_p"
 
     # Classificazione per fasce di peso
     if peso <= 2:
-        return "Small"
+        return SMALL
     elif peso <= 10:
-        return "Medium"
+        return MEDIUM
     else:
-        return "Large"
+        return LARGE
     
-def calculate_shipment_cost(spedizione: dict):
+def calculate_shipment_cost(zona: str, peso: float, fragile: bool) -> float:
     """
     Determina il costo della spedizione a seconda della zona di destinazione
     
@@ -177,11 +169,63 @@ def calculate_shipment_cost(spedizione: dict):
         float: costo per ogni singola spedizione
     """
 
-    pass
+    surplus = 10 if fragile else 0
 
-for spedizione in spedizioni_in_entrata:
-    print(f"{define_zone(spedizione)}, {define_weight(spedizione)}")
+    if zona == LOCAL:
+        return surplus + 5 + peso * 1.5
+    elif zona == CONTINENTAL:
+        return surplus + 12 + peso * 2.5
+    else:
+        return surplus + 25 + peso * 5
 
+def build_weight() -> dict:
+    """Inizializza un dizionario per le categorie di peso.
+
+    Crea una struttura dati predefinita per mappare le dimensioni del pacco
+    a valori numerici (es. costi o pesi), impostandoli a zero.
+
+    Returns:
+        dict: Un dizionario con chiavi SMALL, MEDIUM, LARGE e valori 0.
+    """
+    return {
+        SMALL: 0,
+        MEDIUM: 0,
+        LARGE: 0,
+    }
+
+def build_zone() -> dict:
+    """Costruisce la struttura gerarchica delle zone di spedizione.
+
+    Per ogni zona geografica definita (Locale, Continentale, Intercontinentale),
+    genera un sotto-dizionario contenente le categorie di peso tramite
+    la funzione build_weight().
+
+    Returns:
+        dict: Un dizionario nidificato dove ogni chiave di zona punta a una
+            mappa di pesi e valori.
+    """
+    return {
+        LOCAL: build_weight(),
+        CONTINENTAL: build_weight(),
+        INTERCONTINENTAL: build_weight(),
+    }
+
+def main():
+    riepilogo = build_zone()
+
+    for spedizione in spedizioni_in_entrata:
+        
+        peso = spedizione['kg']
+        fragile = spedizione['fragile']
+        zona = define_zone(spedizione["dest"])
+        costo = calculate_shipment_cost(zona, peso, fragile)
+        grandezza = define_weight(peso)
+
+        riepilogo[zona][grandezza] += costo
+
+    print(riepilogo)
+
+main()
 
 # OUTPUT ATTESO (Valori indicativi calcolati)
 # Il risultato finale dovrà essere un dizionario simile a questo:
