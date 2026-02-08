@@ -19,10 +19,10 @@ Pensare in Python introduce la programmazione come forma di pensiero prima che c
 |---|----------|-----------------|--------|
 | 1 | Programming as a Way of Thinking | Operatori, espressioni, debugging | ✅ |
 | 2 | Variables and Statements | Variabili, stato, import | ✅ |
-| 3 | Functions | Definizione funzioni, scope, stack | ⏳ |
-| 4 | Functions and Interfaces | Incapsulamento, refactoring, docstring | 🔲 |
-| 5 | Conditionals & Recursion | Logica, ricorsione, diagrammi stack | 🔲 |
-| 6 | Values of Return | Valori ritorno, Fibonacci, tipizzazione | 🔲 |
+| 3 | Functions | Definizione funzioni, scope, stack | ✅ |
+| 4 | Functions and Interfaces | Incapsulamento, refactoring, docstring | ✅ |
+| 5 | Conditionals & Recursion | Logica, ricorsione, diagrammi stack | ✅ |
+| 6 | Values of Return | Valori ritorno, Fibonacci, tipizzazione | ⏳ |
 | 7 | Iteration & Search | Cicli, ricerca, doctest | 🔲 |
 | 8 | Strings & Regex | String methods, regex, file writing | 🔲 |
 | 9 | Lists | Sequenze, mutabilità, ordinamento | 🔲 |
