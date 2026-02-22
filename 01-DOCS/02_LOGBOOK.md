@@ -156,3 +156,32 @@
 
 ## 2026-02-08
 📝 Esercizi `match` `case` livello medio (1 script) con [Code Review](/08-VALIDATION/03-Conditionals/03_02_logistica_codereview_claude.md)
+
+## 2026-02-08
+📖 TP - Istruzioni condizionali e Ricorsione (Capitolo 5)
+📖 TP - Valore restituito, `return` (Capitolo 6)
+📝 Esercizi - Funzioni con argomento opzionale e `*args` (3 script)
+
+## 2026-02-14
+📐 Creata repository [caesar-cipher](https://github.com/fionto/caesar-cipher)
+
+## 2026-02-17
+📖 PCC - Classes (Capitolo 9)
+
+## 2026-02-18
+📝 Esercizi classi: `__init()__` e metodi
+
+## 2026-02-19
+🔍 Classi: [Incapsulamento](/03-CONCEPTS/classi_incapsulamento.md)
+📝 Esercizi classi: incapsulamento, interazione tra classi
+
+## 2026-02-20
+📝 Esercizi classi: [04_sistema_bancario.py](/02-EXERCISES/11_OOP/04_sistema_bancario.py)
+📐 Creata repository [budget-bridge](https://github.com/fionto/budget-bridge) per analisi .csv finanziari
+
+## 2026-02-21
+📐 Lavorato su repository "budget-bridge": [Row Parsing Logic](https://github.com/fionto/budget-bridge/blob/main/src/row_parsing.py)
+
+## 2026-02-22
+📖 PCC - Files and Exceptions (Capitolo 10)
+📝 Esercizi - Funzioni `*args` [portafoglio_perdita.py](/02-EXERCISES/09-Functions/09_portafoglio_perdita.py)
