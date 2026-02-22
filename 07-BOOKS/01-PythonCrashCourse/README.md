@@ -28,7 +28,7 @@ Un'introduzione pratica a Python per principianti assoluti. La prima metà copre
 | 7 | User Input & while Loops | Input handling, loop control | ✅ |
 | 8 | Functions | Parameters, returns, modules | ✅ |
 | 9 | Classes | OOP, inheritance, `__init__()` | ⏳ |
-| 10 | Files & Exceptions | File I/O, error handling, JSON | 🔲 |
+| 10 | Files & Exceptions | File I/O, error handling, JSON | ⏳ |
 | 11 | Testing Your Code | pytest, assertions, unit testing | 🔲 |
 
 ### PART II: PROJECTS (Capitoli 12-20)
