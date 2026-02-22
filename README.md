@@ -5,12 +5,12 @@ Un progetto personale di apprendimento di Python usando **Python Crash Course**,
 ## 📊 Progresso Attuale
 
 - **Libri**
-  - Python Crash Course: Capitolo 9 ⏳
+  - Python Crash Course: Capitolo 10 ⏳
   - Pensare in Python: Capitolo 6 ⏳
-- **Esercizi**: 90+ completati
-- **Progetti**: 3 completati
+- **Esercizi**: 100+ completati
+- **Mini-Progetti**: 3 completati
 - **Inizio**: 27 dicembre 2025
-- **Ultimo aggiornamento**: 08 Febbraio 2026
+- **Ultimo aggiornamento**: 22 Febbraio 2026
 
 ## 📁 Struttura del Progetto
 
@@ -24,7 +24,7 @@ learning-python/
 │   ├── 01-Variables/                    # Stringhe, numbers, f-strings — (13 script)
 │   ├── 02-Lists/                        # CRUD, mutabilità, slicing base — (11 script)
 │   ├── 03-Conditionals/                 # Booleani, if/elif/else — (7 script)
-│   │   └── 03_02_MatchCase/             # Pattern Matching: costrutto match/case — (5 script) ⏳
+│   │   └── 03_02_MatchCase/             # Pattern Matching: costrutto match/case — (6 script) ⏳
 │   ├── 04-Loops/
 │   │   ├── 04_01_ForLoops/              # range(), iterazione, list comprehension — (15 script)
 │   │   └── 04_02_WhileLoops/            # Input validation, statistica, queue mgmt — (9 script)
@@ -32,8 +32,8 @@ learning-python/
 │   ├── 06-Dictionaries/                 # Key-value, CRUD, nesting, .get() — (10 script)
 │   ├── 07-Tuples & Sets/                # Immutabili, set operations — (📋 in prep)
 │   ├── 08-Comprehensions/               # List/dict/set, filtering, nested — (8 script)
-│   ├── 09-Functions/                    # Defining, passing, returning,  — (5 script) ⏳
-│   └── 11-OOP/                          # Classes — (2 script) ⏳
+│   ├── 09-Functions/                    # Defining, passing, returning  — (9 script) ⏳
+│   └── 11-OOP/                          # Classes — (4 script) ⏳
 │
 ├── 🔍 03-CONCEPTS/                     # Approfondimenti autonomi, non presenti sul libro
 │
@@ -71,7 +71,7 @@ learning-python/
 
 - ✅ Lettura sistematica dei libri
 - ✅ Esercizi custom di difficoltà crescente per consolidamento
-- ✅ Mega-progetti per applicazione pratica di concetti
+- ✅ Mini-progetti per applicazione pratica di concetti
 - ✅ Fonti supplementari per approfondimenti
 - ✅ Documentazione Markdown per riferimento futuro
 - ✅ Version control con Git
