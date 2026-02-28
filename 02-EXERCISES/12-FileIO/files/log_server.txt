@@ -1,0 +1,15 @@
+[2023-10-27 08:00:01] INFO: Server avviato correttamente sulla porta 8080.
+[2023-10-27 08:00:05] DEBUG: Caricamento configurazione da config.yaml.
+[2023-10-27 08:01:12] INFO: Connessione al database stabilita con successo.
+[2023-10-27 08:05:33] WARNING: Utilizzo memoria RAM superiore all'80%.
+[2023-10-27 08:06:45] ERRORE: Impossibile leggere il file 'dati_utenti.csv'. Permesso negato.
+[2023-10-27 08:07:00] DEBUG: Tentativo di retry per la lettura del file...
+[2023-10-27 08:07:02] errore: Timeout della connessione al file system remoto.
+[2023-10-27 08:10:15] INFO: Nuovo utente registrato: ID #4921.
+[2023-10-27 08:12:30] ERRORE: Eccezione non gestita nel modulo di pagamento.
+[2023-10-27 08:12:31] DEBUG: Stack trace salvato in /logs/crash_dump.log.
+[2023-10-27 08:15:00] INFO: Backup giornaliero iniziato.
+[2023-10-27 08:20:45] Warning: Spazio su disco inferiore al 10%.
+[2023-10-27 08:22:10] ERRORE: Scrittura fallita durante il backup. Disco pieno?
+[2023-10-27 08:25:00] INFO: Pulizia cache completata.
+[2023-10-27 08:30:00] INFO: Server in attesa di richieste...

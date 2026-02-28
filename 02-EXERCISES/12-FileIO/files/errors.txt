@@ -1,0 +1,4 @@
+Errore #1:[2023-10-27 08:06:45] ERRORE: Impossibile leggere il file 'dati_utenti.csv'. Permesso negato.
+Errore #2:[2023-10-27 08:07:02] errore: Timeout della connessione al file system remoto.
+Errore #3:[2023-10-27 08:12:30] ERRORE: Eccezione non gestita nel modulo di pagamento.
+Errore #4:[2023-10-27 08:22:10] ERRORE: Scrittura fallita durante il backup. Disco pieno?
