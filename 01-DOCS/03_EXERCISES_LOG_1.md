@@ -1,10 +1,10 @@
 # 📂 Exercises Activity Log
 
-**Repository:** learning-python
-**Last Update:** 17/01/2026
-**Environment:** Python 3.12.10, VS Code
-**Status:** In Progress (Chapters 1-7 Covered)
-**Total Exercises:** 90+
+**Repository:** learning-python  
+**Last Update:** 17/01/2026  
+**Environment:** Python 3.12.10, VS Code  
+**Status:** In Progress (Chapters 1-7 Covered)  
+**Total Exercises:** 90+  
 
 ---
 
