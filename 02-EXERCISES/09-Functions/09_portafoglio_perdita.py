@@ -86,13 +86,33 @@ def valuta_investimento(investimento: tuple[str, int, float, float]) -> tuple[fl
 
 def valuta_portafoglio(*investimenti: tuple[str, int, float, float]) -> dict:
     """
-    Genera un portafoglio di riepilogo sottoforma di dizionario ricevendo in
-    ingresso un investimento
+    Analizza un numero arbitrario di investimenti e costruisce
+    un dizionario riassuntivo del portafoglio.
+
+    La funzione riceve uno o più investimenti tramite *args,
+    valuta ciascuno utilizzando la funzione valuta_investimento()
+    e organizza i risultati in una struttura dati facilmente
+    utilizzabile per la stampa o ulteriori elaborazioni.
+
+    Args:
+        *investimenti (tuple[str, int, float, float]):
+            Numero arbitrario di tuple nella forma:
+            - Nome/Ticker (str)
+            - Quantità (int)
+            - Prezzo di acquisto (float)
+            - Prezzo attuale (float)
+
+    Returns:
+        dict:
+            Dizionario con chiave il ticker dell'asset e valore un
+            sotto-dizionario contenente:
+                - 'profittevole' (bool): True se in profitto, False altrimenti
+                - 'guadagno' (float): Differenza tra valore attuale e iniziale
     """
     portafoglio = {}
         
     for investimento in investimenti:
-        ticker = investimento[0]
+        ticker, *_ = investimento
         valore_iniziale, valore_finale, is_profittevole = valuta_investimento(investimento)
         
         # Ipotizzo che nella lista di investimenti non ci siano doppioni
@@ -103,24 +123,59 @@ def valuta_portafoglio(*investimenti: tuple[str, int, float, float]) -> dict:
 
     return portafoglio
 
-def stampa_portafoglio(portafoglio: dict):
+def totale_portafoglio(portafoglio: dict) -> float:
+    """
+    Calcola il guadagno/perdita totale del portafoglio.
+
+    La funzione riceve il dizionario prodotto da valuta_portafoglio()
+    e somma i valori associati alla chiave 'guadagno' per ciascun asset.
+
+    Args:
+        portafoglio (dict):
+            Dizionario con chiave il ticker dell'asset e valore un
+            sotto-dizionario contenente almeno la chiave 'guadagno'.
+
+    Returns:
+        float:
+            Somma complessiva dei guadagni e delle perdite del portafoglio.
+            Il valore può essere positivo (profitto totale) o negativo (perdita totale).
+    """    
+    valore_totale = 0
+    
+    for k, v in portafoglio.items():
+        valore_totale += float(v['guadagno'])
+    
+    return valore_totale
+
+def stampa_portafoglio(portafoglio: dict) -> None:
+    """
+    Stampa un report leggibile dell'analisi del portafoglio.
+
+    La funzione riceve il dizionario prodotto da valuta_portafoglio(),
+    mostra per ciascun asset se è in profitto o in perdita e l'importo
+    relativo, quindi calcola e stampa il risultato complessivo del
+    portafoglio utilizzando totale_portafoglio().
+
+    Args:
+        portafoglio (dict):
+            Dizionario con chiave il ticker dell'asset e valore un
+            sotto-dizionario contenente almeno:
+                - 'profittevole' (bool)
+                - 'guadagno' (float)
+
+    Returns:
+        None:
+            La funzione non restituisce valori, ma stampa il report
+            direttamente a console.
+    """
     
     print("Analisi Portafoglio:")
 
     for k, v in portafoglio.items():
         print(f"{k.upper()}: {'Profitto' if v['profittevole'] else 'Perdita'} di {abs(v['guadagno']):.2f} €")
 
+    print(f"\nTotale Portafoglio: {totale_portafoglio(portafoglio):.2f} €")
+
 # --- CHIAMATA CORRETTA ---
 # Usa l'asterisco (*) per espandere la tupla di tuple in argomenti singoli
 stampa_portafoglio(valuta_portafoglio(*investimenti_test_4))
-
-
-
-# Esempio di output:
-#
-# Analisi portafoglio:
-# - AAPL: Profitto di 355.00 €
-# - MSFT: Perdita di 120.00 €
-# - BTP: Profitto di 74.00 €
-#
-# Profitto/Perdita totale: 309.00 €
