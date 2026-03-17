@@ -18,8 +18,6 @@
 # (Nota: sentiti libero di personalizzare gli attributi aggiuntivi 
 # e il formato dell'output come preferisci)
 
-# Scrivi il tuo codice qui sotto:
-
 class Utente:
     """Classe che modella un semplice profilo utente"""
 

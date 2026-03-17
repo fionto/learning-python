@@ -27,8 +27,6 @@
 # (Nota: eredita dalla classe User esistente e mantieni tutti i suoi attributi 
 # e metodi, aggiungendo solo le funzionalità specifiche per Admin)
 
-# Scrivi il tuo codice qui sotto:
-
 class Utente:
     """Modella un semplice profilo utente"""
 
