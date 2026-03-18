@@ -58,38 +58,114 @@
 # ==============================================================================
 
 class Personaggio:
-    
-    def __init__(self, nome: str, punti_vita: int, livello: int):
-        self.nome = nome
-        self.punti_vita = punti_vita
-        self.livello = livello
+    """
+    Rappresenta un personaggio generico nel gioco.
 
-    def descrivi_pg(self):
+    Questa classe funge da base per personaggi giocanti e NPC. Gestisce gli attributi
+    vitali (nome, livello, punti vita) e le operazioni fondamentali di sopravvivenza.
+
+    Attributes:
+        nome (str): Il nome del personaggio.
+        livello (int): Il livello attuale del personaggio.
+        punti_vita (int): I punti vita attuali (range valido: 0-1000).
+    """
+
+    def __init__(self, nome: str, punti_vita: int, livello: int):
+        """
+        Inizializza un nuovo personaggio.
+
+        Args:
+            nome (str): Il nome del personaggio.
+            punti_vita (int): I punti vita iniziali.
+            livello (int): Il livello iniziale del personaggio.
+
+        Raises:
+            ValueError: Se punti_vita non è compreso tra 0 e 1000.
+        """
+        self.nome = nome
+        self.livello = livello
+        # Chiamo un metodo privato (_set_punti_vita) invece di assegnare direttamente
+        # self.punti_vita = punti_vita. Perché? Perché voglio che la validazione
+        # avvenga anche in fase di creazione. Se tra 6 mesi modifico i range nel setter,
+        # l'__init__ sarà automaticamente aggiornato senza toccare questo codice.
+        self._set_punti_vita(punti_vita)
+
+    def _set_punti_vita(self, valore: int):
+        """
+        Imposta i punti vita applicando le regole di validazione.
+
+        Questo metodo è privato (prefisso underscore) perché è un dettaglio
+        implementativo interno. Non dovrebbe essere chiamato dall'esterno della classe.
+
+        Args:
+            valore (int): Il nuovo valore dei punti vita.
+
+        Raises:
+            ValueError: Se il valore non è compreso tra 0 e 1000.
+        """
+        # Scelgo di lanciare un errore invece di correggere silenziosamente (es. max/min).
+        # Perché? Perché se arrivo qui con un valore sbagliato, voglio saperlo subito
+        # durante lo sviluppo. Un errore blocca il programma e mi avvisa del bug.
+        # Correggere in silenzio nasconderebbe errori di logica altrove nel codice.
+        if not (0 <= valore <= 1000):
+            raise ValueError(f"PV {valore} non valido. Range ammesso: 0-1000.")
+        
+        self.punti_vita = valore
+
+    def descrivi(self):
+        """
+        Stampa le informazioni principali del personaggio a video.
+
+        Output include nome (in formato titolo), livello e punti vita attuali.
+        Utilizzato principalmente per debug o interfacce testuali semplici.
+        """
+        # Questo metodo stampa direttamente. In un progetto reale con interfaccia grafica,
+        # sarebbe meglio restituire una stringa o un dizionario. Per ora va bene così,
+        # ma se dovessi separare la logica dalla presentazione, refattorizzare qui.
         print(f"Nome personaggio: {self.nome.title()}")
         print(f"Livello: {self.livello}")
         print(f"Punti vita: {self.punti_vita}")
 
-    def subisci_danno(self, quantità: int):
-        if quantità < 0:
+    def subisci_danno(self, quantita: int):
+        """
+        Riduce i punti vita del personaggio di una quantità specifica.
+
+        I punti vita non possono scendere sotto zero. Se il danno è negativo,
+        l'operazione viene annullata (non sono previste cure tramite questo metodo).
+
+        Args:
+            quantita (int): La quantità di danno da subire. Deve essere >= 0.
+
+        Returns:
+            bool: True se il danno è stato applicato, False se la quantita era negativa.
+        """
+        if quantita < 0:
             return False
-        
-        if self.punti_vita < quantità:
-            self.punti_vita = 0
-            return True
-        else:
-            self.punti_vita -= quantità
-            return True
-        
-    def is_alive(self):
-        if self.punti_vita > 0:
-            return True
-        else:
-            return False
+
+        # Calcolo il nuovo valore PRIMA di passare al setter.
+        # Uso max(0, ...) per garantire che non passi mai valori negativi al setter.
+        # Il setter si occupa di validare il range, io mi occupo della logica di gioco
+        # (il danno non può curare).
+        nuovo_valore = max(0, self.punti_vita - quantita)
+        self._set_punti_vita(nuovo_valore)
+        return True
+
+    def e_vivo(self):
+        """
+        Verifica se il personaggio è ancora in vita.
+
+        Returns:
+            bool: True se punti_vita > 0, False altrimenti.
+        """
+        # Restituisco direttamente l'espressione booleana.
+        # Evito 'if self.punti_vita > 0: return True else: return False'
+        # perché è ridondante. Il confronto restituisce già un bool.
+        return self.punti_vita > 0
 
 class Inventario:
 
-    def __init__(self, capacità_massima=3, oggetti_iniziali=None):
-        self.capacità = capacità_massima
+    def __init__(self, capacita_massima=3, oggetti_iniziali=None):
+        self.capacità = capacita_massima
         if oggetti_iniziali is None:
             self.oggetti = []
         else:
@@ -133,10 +209,10 @@ class Guerriero(Personaggio):
 
 def main():
     ettore = Personaggio("Ettore", 120, 5)
-    ettore.descrivi_pg()
+    ettore.descrivi()
 
     achille = Guerriero("Achille", 150, 7, 30)
-    achille.descrivi_pg()
+    achille.descrivi()
 
 if __name__ == "__main__":
     main()
