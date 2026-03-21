@@ -1,161 +1,68 @@
-# 🐍 PCEP-30-02 — Entry-Level Python Programmer
-Checklist di Studio
+# 🐍 Preparazione Esame PCEP-30-02 (Entry-Level Python Programmer)
 
-## 📌 Introduzione
+Questo repository funge da guida allo studio e tracker dei progressi per l'esame **PCEP-30-02**. L'obiettivo è coprire tutti i punti del syllabus ufficiale del Python Institute per ottenere la certificazione entry-level.
 
-L’esame **PCEP-30-02** certifica le competenze fondamentali di programmazione in Python. È pensato per chi è all’inizio del percorso e verifica la comprensione dei concetti base: sintassi, logica, strutture di controllo, collezioni di dati, funzioni ed eccezioni.
+## 📝 Informazioni sull'Esame
+L'esame **Certified Entry-Level Python Programmer** certifica la conoscenza dei concetti fondamentali della programmazione, inclusi i tipi di dati, i contenitori, le funzioni, le condizioni e i cicli. È il primo passo per chiunque voglia intraprendere una carriera nel mondo Python.
 
-👉 Obiettivo: dimostrare di saper leggere, comprendere e scrivere semplici programmi Python.
+* **Durata:** 40 minuti (esame) + 5 minuti (NDA/Tutorial).
+* **Numero di domande:** 30.
+* **Soglia di superamento:** 70%.
 
----
-
-## 📊 Stato di avanzamento
+## 📊 Legenda Progressi
 
 | Emoji | Significato | Descrizione |
 |-------|------------|-------------|
 | ⬜ | Non Iniziato | Non hai ancora iniziato questa sezione |
-| 🔄 | In Corso | Stai attualmente studiando questa sezione |
-| ✅ | Completato | Hai completato lo studio, sei sicuro dei concetti |
+| ⏳ | In Corso | Stai attualmente studiando questa sezione |
+| ✅ | Completato | Hai completato lo studio e i test pratici |
 
 ---
 
-# 🧠 Sezione 1 — Python Fundamentals (18%)
+## 📚 Syllabus e Checklist
 
-📖 *Qui costruisci le fondamenta: come funziona Python, come si scrive codice e come vengono gestiti i dati.*
+### Sezione 1: Computer Programming and Python Fundamentals (18%)
+*Questa sezione introduce i concetti base dell'informatica: come Python interpreta il codice, come gestire le variabili, i sistemi numerici e gli operatori fondamentali.*
 
-### Checklist
-
-- ⬜ Interprete vs compilatore
-- ⬜ Lessico, sintassi, semantica
-- ⬜ Keyword e istruzioni
-- ⬜ Indentazione e blocchi di codice
-- ⬜ Commenti
-
-- ⬜ Tipi di dato base (int, float, bool, string)
-- ⬜ Notazione scientifica
-- ⬜ Sistemi numerici (binario, ottale, decimale, esadecimale)
-- ⬜ Variabili e naming (PEP-8)
-
-- ⬜ Operatori aritmetici (`+ - * / // % **`)
-- ⬜ Operatori su stringhe (`+ *`)
-- ⬜ Operatori di assegnazione
-- ⬜ Operatori booleani (`and`, `or`, `not`)
-- ⬜ Operatori relazionali
-- ⬜ Priorità degli operatori
-- ⬜ Operatori bitwise
-- ⬜ Type casting (`int()`, `float()`)
-- ⬜ Precisione dei float
-
-- ⬜ Input/output (`input()`, `print()`)
-- ⬜ Parametri `sep` e `end`
+- [⬜] **1.1** Termini fondamentali (Interprete/Compilatore, Lessico, Sintassi, Semantica) 
+- [⬜] **1.2** Logica e struttura (Keyword, Istruzioni, Indentazione, Commenti) 
+- [⬜] **1.3** Letterali, variabili, sistemi numerici (Tipi base, Bin/Oct/Hex, PEP-8) 
+- [⬜] **1.4** Operatori e tipi di dati (Numerici, Bitwise, Booleani, Relazionali, Casting) 
+- [⬜] **1.5** Input/Output da console (`print()`, `input()`, parametri `sep` e `end`) 
 
 ---
 
-# 🔀 Sezione 2 — Control Flow (29%)
+### Sezione 2: Control Flow (29%)
+*Il cuore della logica di programmazione. Qui si impara a far prendere decisioni al programma (if-else) e a ripetere operazioni in modo efficiente tramite i cicli.*
 
-📖 *Qui impari a controllare il flusso del programma: decisioni e cicli.*
-
-### Checklist
-
-- ⬜ `if`
-- ⬜ `if-else`
-- ⬜ `if-elif-else`
-- ⬜ Condizioni multiple
-- ⬜ Nested if
-
-- ⬜ `while`
-- ⬜ `for`
-- ⬜ `range()`
-- ⬜ Iterazione su sequenze
-- ⬜ `pass`
-
-- ⬜ `break`
-- ⬜ `continue`
-- ⬜ `while-else`
-- ⬜ `for-else`
-- ⬜ Cicli annidati
+- [⬜] **2.1** Decisioni e branching (`if`, `elif`, `else`, condizioni multiple, nesting)
+- [⬜] **2.2** Iterazioni (`while`, `for`, `range()`, `break`, `continue`, clausola `else` nei cicli)
 
 ---
 
-# 📦 Sezione 3 — Data Collections (25%)
+### Sezione 3: Data Collections (25%)
+*In questa sezione si approfondisce la gestione dei dati strutturati. Sapere quando usare una lista, una tupla o un dizionario è fondamentale per scrivere codice Pythonic.*
 
-📖 *Qui lavori con strutture dati: come memorizzare e manipolare gruppi di informazioni.*
-
-### Checklist
-
-## Liste
-- ⬜ Creazione liste
-- ⬜ Indicizzazione e slicing
-- ⬜ `len()`
-- ⬜ Metodi (`append()`, `insert()`, `index()`, ecc.)
-- ⬜ `sorted()`
-- ⬜ `del`
-- ⬜ Iterazione con `for`
-- ⬜ `in` / `not in`
-- ⬜ List comprehension
-- ⬜ Copia vs clonazione
-- ⬜ Liste multidimensionali
-
-## Tuple
-- ⬜ Creazione tuple
-- ⬜ Indicizzazione e slicing
-- ⬜ Immutabilità
-- ⬜ Differenze lista vs tupla
-- ⬜ Strutture miste
-
-## Dizionari
-- ⬜ Creazione dizionari
-- ⬜ Accesso tramite chiavi
-- ⬜ Aggiunta/rimozione elementi
-- ⬜ Iterazione (`keys()`, `values()`, `items()`)
-- ⬜ Controllo esistenza chiavi
-
-## Stringhe
-- ⬜ Creazione stringhe
-- ⬜ Indicizzazione e slicing
-- ⬜ Immutabilità
-- ⬜ Escape (`\`)
-- ⬜ Virgolette e apostrofi
-- ⬜ Stringhe multilinea
-- ⬜ Metodi base
+- [⬜] **3.1** Liste (Slicing, Metodi, List Comprehension, Matrici)
+- [⬜] **3.2** Tuple (Immutabilità, Tuple vs Liste, Nesting)
+- [⬜] **3.3** Dizionari (Chiavi/Valori, Metodi `keys()`, `items()`, `values()`) 
+- [⬜] **3.4** Stringhe (Slicing, Immutabilità, Caratteri escape, Metodi di base)
 
 ---
 
-# ⚙️ Sezione 4 — Functions & Exceptions (28%)
+### Sezione 4: Functions and Exceptions (28%)
+*L'ultima sezione riguarda l'organizzazione del codice in funzioni riutilizzabili e la gestione degli errori per rendere i programmi robusti e professionali.*
 
-📖 *Qui entri nella logica più “strutturata”: organizzare il codice e gestire errori.*
-
-### Checklist
-
-## Funzioni
-- ⬜ Definizione (`def`)
-- ⬜ Chiamata funzione
-- ⬜ `return`
-- ⬜ `None`
-- ⬜ Ricorsione
-- ⬜ Concetto di generatori
-
-## Parametri e scope
-- ⬜ Parametri vs argomenti
-- ⬜ Passaggio posizionale
-- ⬜ Keyword arguments
-- ⬜ Valori di default
-- ⬜ Scope delle variabili
-- ⬜ Shadowing
-- ⬜ Uso di `global`
-
-## Eccezioni (teoria)
-- ⬜ Gerarchia (`BaseException`, `Exception`)
-- ⬜ `TypeError`, `ValueError`
-- ⬜ `IndexError`, `KeyError`
-- ⬜ `ArithmeticError`
-- ⬜ `SystemExit`, `KeyboardInterrupt`
-
-## Gestione errori
-- ⬜ `try-except`
-- ⬜ Gestione multipla eccezioni
-- ⬜ Ordine degli `except`
-- ⬜ Propagazione eccezioni
-- ⬜ Delega della gestione
+- [⬜] **4.1** Funzioni (Definizione, Invocazione, `return`, `None`, Ricorsione) ⬜
+- [⬜] **4.2** Interazione funzione-ambiente (Parametri/Argomenti, Scope, `global`) ⬜
+- [⬜] **4.3** Gerarchia delle eccezioni (Tipi di errori built-in come `ValueError`, `TypeError`, ecc.) ⬜
+- [⬜] **4.4** Gestione delle eccezioni (`try-except`, propagazione degli errori) ⬜
 
 ---
+
+## 🚀 Risorse Utili
+* [Documentazione Ufficiale Python](https://docs.python.org/3/)
+* [PCEP Exam Syllabus](https://pythoninstitute.org/pcep)
+
+---
+*Ultimo aggiornamento: 21 Marzo 2026*

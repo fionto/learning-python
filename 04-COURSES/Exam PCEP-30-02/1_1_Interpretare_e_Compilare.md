@@ -28,9 +28,9 @@ Ogni linguaggio, naturale o di programmazione, si regge su tre livelli distinti 
 
 ### Il Lessico: Le Parole Ammesse
 
-Il lessico di un linguaggio è l'insieme delle parole che quel linguaggio riconosce come valide. In italiano, "casa" è una parola del lessico; "xqrzf" non lo è. In Python, parole come `print`, `if`, `for`, `while`, `def`, `return` fanno parte del lessico: sono parole riservate dal linguaggio, dette **keyword** (o parole chiave), che hanno un significato predefinito e non possono essere usate per altri scopi.
+Il lessico di un linguaggio è l'insieme delle parole che quel linguaggio riconosce come valide. In italiano, "casa" è una parola del lessico; "xqrzf" non lo è. In Python, parole come `if`, `for`, `while`, `def`, `return` fanno parte del lessico: sono parole riservate dal linguaggio, dette **keyword** (o parole chiave), che hanno un significato predefinito e non possono essere usate per altri scopi.
 
-Se scrivete una parola che Python non riconosce (per esempio, se fate un errore di battitura e scrivete `prrint` invece di `print`), l'interprete vi segnala immediatamente che quella parola non esiste nel suo lessico. Questo tipo di errore è facilmente identificabile e correggibile.
+Se scrivete una parola che Python non riconosce (per esempio, se fate un errore di battitura e scrivete `retturn` invece di `return`), l'interprete vi segnala immediatamente che quella parola non esiste nel suo lessico. Questo tipo di errore è facilmente identificabile e correggibile.
 
 ### La Sintassi: Le Regole Grammaticali
 
