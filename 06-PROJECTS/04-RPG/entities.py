@@ -55,7 +55,10 @@ class Personaggio:
         Raises:
             ValueError: Se i valori non rientrano nei range ammessi.
         """
-        self.nome = nome
+        if not isinstance(nome, str) or not nome.strip():
+            raise ValueError("Il nome deve essere una stringa non vuota.")
+        self.nome = nome.strip()
+        
         # Chiamo metodi privato (_set_punti_vita, _set_livello) invece di assegnare direttamente
         # self.punti_vita = punti_vita. Perché voglio che la validazione
         # avvenga anche in fase di creazione. Se tra 6 mesi modifico i range nel setter,
@@ -95,9 +98,10 @@ class Personaggio:
         print(f"Livello: {self.livello}")
         print(f"Punti vita: {self.punti_vita}")
 
-    def subisci_danno(self, quantita: int):
+    def subisci_danno(self, quantita: int) -> bool:
         """
         Riduce i punti vita del personaggio di una quantità specifica.
+        Indica con bool se l'operazione va a byuon fine.
 
         Args:
             quantita (int): La quantità di danno da subire. Deve essere >= 0.
@@ -139,7 +143,11 @@ class Inventario:
     # trasformare self._oggetti in dizionario: {nome_oggetto: quantità}.
     # La capacità si calcolerebbe su sum(self._oggetti.values()).
 
-    def __init__(self, capacita_massima=3, oggetti_iniziali=None):
+    def __init__(
+            self, 
+            capacita_massima : int = 3, 
+            oggetti_iniziali: list | None = None,
+            ):
         """
         Inizializza un nuovo inventario.
 
@@ -148,15 +156,18 @@ class Inventario:
             oggetti_iniziali (list, optional): Lista di oggetti iniziali.
         """
         self._set_capacita(capacita_massima)
-        
-        # Pattern standard per argomenti mutabili di default.
+
+        # Se oggetti_iniziali è None, creo una NUOVA lista vuota per QUESTA istanza.
+        # Se è fornita, uso quella (assumendo che sia una lista valida).
         if oggetti_iniziali is None:
             self._oggetti = []
+        elif len(oggetti_iniziali) > capacita_massima:
+            raise ValueError(f"Capacità {len(oggetti_iniziali)} non valida. Range: {MIN_INVENTARIO}-{MAX_INVENTARIO}.")
         else:
             # Copia la lista per evitare riferimenti esterni condivisi
             self._oggetti = oggetti_iniziali[:]
     
-    def _set_capacita(self, numero_oggetti):
+    def _set_capacita(self, numero_oggetti: int):
         """
         Imposta la capacità massima applicando validazione.
         """
@@ -165,9 +176,10 @@ class Inventario:
         
         self.capacita_massima = numero_oggetti
 
-    def aggiungi(self, oggetto: str):
+    def aggiungi(self, oggetto: str) -> bool:
         """
         Aggiunge un oggetto all'inventario.
+        Indica con bool se l'operazione va a byuon fine.
 
         Returns:
             bool: True se aggiunto, False se pieno.
@@ -181,9 +193,10 @@ class Inventario:
         self._oggetti.append(oggetto.strip())
         return True
     
-    def rimuovi(self, oggetto: str):
+    def rimuovi(self, oggetto: str) -> bool:
         """
         Rimuove un oggetto dall'inventario (case-sensitive).
+        Indica con bool se l'operazione va a byuon fine.
 
         Returns:
             bool: True se rimosso, False se non trovato.
@@ -260,6 +273,7 @@ class Guerriero(Personaggio):
     def attacco_pesante(self, nemico: 'Personaggio') -> bool:
         """
         Esegue un attacco speciale basato sulla forza del guerriero.
+        Indica con bool se l'operazione va a byuon fine.
 
         Args:
             nemico (Personaggio): Il bersaglio dell'attacco.
