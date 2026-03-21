@@ -24,8 +24,8 @@ L'esame **Certified Entry-Level Python Programmer** certifica la conoscenza dei 
 ### Sezione 1: Computer Programming and Python Fundamentals (18%)
 *Questa sezione introduce i concetti base dell'informatica: come Python interpreta il codice, come gestire le variabili, i sistemi numerici e gli operatori fondamentali.*
 
-- [⬜] **1.1** Termini fondamentali (Interprete/Compilatore, Lessico, Sintassi, Semantica) 
-- [⬜] **1.2** Logica e struttura (Keyword, Istruzioni, Indentazione, Commenti) 
+- [✅] **1.1** Termini fondamentali (Interprete/Compilatore, Lessico, Sintassi, Semantica) 
+- [✅] **1.2** Logica e struttura (Keyword, Istruzioni, Indentazione, Commenti) 
 - [⬜] **1.3** Letterali, variabili, sistemi numerici (Tipi base, Bin/Oct/Hex, PEP-8) 
 - [⬜] **1.4** Operatori e tipi di dati (Numerici, Bitwise, Booleani, Relazionali, Casting) 
 - [⬜] **1.5** Input/Output da console (`print()`, `input()`, parametri `sep` e `end`) 
