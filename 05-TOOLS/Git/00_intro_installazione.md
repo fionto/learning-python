@@ -6,7 +6,7 @@ Immagina di stare lavorando a un progetto importante. Modifichi un file, poi un 
 
 Oppure immagina di lavorare con altre persone. Tutti modificano gli stessi file. Come farete a sapere chi ha fatto cosa? Come eviterete che le modifiche di una persona sovrascrivano quelle di un'altra? Come terrete traccia delle versioni diverse del progetto?
 
-Questi problemi sono esattamente quello che **Git** risolve. Git è un sistema di **version control** — un software che tiene traccia di tutte le modifiche ai tuoi file nel tempo, permettendoti di tornare a qualsiasi versione precedente del tuo lavoro, e facilitando la collaborazione tra più persone su progetti condivisi.
+Questi problemi sono esattamente quello che **Git** risolve. Git è un sistema di **version control**: un software che tiene traccia di tutte le modifiche ai tuoi file nel tempo, permettendoti di tornare a qualsiasi versione precedente del tuo lavoro, e facilitando la collaborazione tra più persone su progetti condivisi.
 
 La bellezza di Git è che funziona completamente **localmente** sul tuo computer. Non richiede una connessione internet per registrare la storia del tuo lavoro. Puoi continuare a lavorare anche offline, e sincronizzarti con i tuoi collaboratori quando la connessione ritorna disponibile.
 
@@ -16,7 +16,7 @@ Mentre Git è uno strumento che vive sul tuo computer, **GitHub** è una piattaf
 
 GitHub appartiene a Microsoft (acquisita nel 2018) ed è diventata la piattaforma standard dell'industria per lo sviluppo di software. È gratuita per uso personale, anche se opti per repository privati che solo tu puoi vedere. Milioni di sviluppatori usano GitHub non solo per collaborare, ma anche come portfolio pubblico del proprio lavoro.
 
-La piattaforma offre molto più di un semplice spazio di storage. Ti permette di esplorare il codice di altri sviluppatori, di contribuire a progetti open source, di ricevere feedback sul tuo lavoro attraverso le "pull request" — un meccanismo formale di revisione del codice. Per un principiante, GitHub può sembrare un "GitHub che host il tuo codice", ma col tempo comprenderai che è un ecosistema completo di sviluppo collaborativo.
+La piattaforma offre molto più di un semplice spazio di storage. Ti permette di esplorare il codice di altri sviluppatori, di contribuire a progetti open source, di ricevere feedback sul tuo lavoro attraverso le "pull request": un meccanismo formale di revisione del codice. Per un principiante, GitHub può sembrare un "GitHub che host il tuo codice", ma col tempo comprenderai che è un ecosistema completo di sviluppo collaborativo.
 
 ## Repository: Il Cuore di Git
 
@@ -69,13 +69,13 @@ Git è stato creato nel 2005 da Linus Torvalds per gestire il codice del kernel 
 
 Pensateci: se voi e un vostro collega state modificando lo stesso file, e trovate un bug più tardi, chi l'ha introdotto? Se Git non sapesse chi ha fatto cosa, sarebbe impossibile risalire responsabilità. Ma se Git sa che il collega ha aggiunto una certa riga il 15 gennaio alle 14:30, potete contattarlo e dire "ehi, il codice che hai aggiunto così causa un problema".
 
-Allo stesso modo, in un progetto open source pubblico, quando qualcuno pubblica codice su GitHub, il suo nome appare come autore di quel codice. È una forma di attribuzione. È come firmare una lettera — solo digitale.
+Allo stesso modo, in un progetto open source pubblico, quando qualcuno pubblica codice su GitHub, il suo nome appare come autore di quel codice. È una forma di attribuzione. È come firmare una lettera, solo digitale.
 
 ### Il Nome vs L'Email
 
 Quando configurate Git, gli darete due informazioni: un nome e un'email. Potrebbe sembrare strano che Git voglia un'email — dopotutto, non la usa per inviarvi messaggi. L'email serve per un'altra ragione.
 
-L'email è l'identificativo **globale** di una persona in git. Se voi usate il nome "Andrea", potrebbe esserci un'altra persona nel mondo chiamata Andrea che usa Git. Ma la probabilità che due persone abbiano esattamente la stessa email è vanishingly low. L'email garantisce unicità.
+L'email è l'identificativo **globale** di una persona in git. Se voi usate il nome "Andrea", potrebbe esserci un'altra persona nel mondo chiamata Andrea che usa Git. Ma la probabilità che due persone abbiano esattamente la stessa email è molto bassa. L'email garantisce unicità.
 
 Inoltre, se un giorno pubblicate il vostro codice su GitHub, GitHub vuole collegare il codice al vostro account GitHub, e fa ciò matchando l'email che usate nel vostro Git locale con l'email registrata sul vostro profilo GitHub. Se le email non corrispondo, GitHub non sa che siete voi. Il vostro commit apparirà come firmato da "Andrea (andrea@example.com)" anziché mostrare il vostro avatar e il vostro profilo GitHub.
 
