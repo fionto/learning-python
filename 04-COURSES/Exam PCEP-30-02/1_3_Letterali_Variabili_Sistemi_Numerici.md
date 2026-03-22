@@ -1,8 +1,8 @@
-# Capitolo 2: Sezione 1.3 - Letterali, Variabili e Sistemi Numerici: Dare un Nome al Mondo
+# Capitolo 1: Sezione 1.3 - Letterali, Variabili e Sistemi Numerici: Dare un Nome al Mondo
 
 ## Introduzione: Il Linguaggio dei Dati
 
-Quando andate al supermercato e scrivete la lista della spesa, state già facendo qualcosa di molto simile alla programmazione. Scrivete "3 mele", "1,5 kg di farina", "vero che serve il sale" (oppure "falso, ne abbiamo ancora). State cioè annotando valori concreti (3, 1.5, vero/falso) e attribuendo loro un significato. In programmazione, questi valori concreti che scriviamo direttamente nel codice si chiamano **letterali**, e il modo in cui diciamo all'interprete Python "tienimi questo valore da parte, mi servirà dopo" si chiama **variabile**.
+Pensate alla scheda anagrafica che compilate dal medico. Ci sono campi dove scrivete valori precisi e immutabili in quel momento: 'Età: 24 anni', 'Altezza: 1.75 metri', 'Fumatore: No'. Quei valori scritti nero su bianco (24, 1.75, No) sono i **letterali**: rappresentano la realtà concreta in quell'istante. Tuttavia, il medico non ragiona dicendo 'Se 24 è maggiore di 18...'. Il medico guarda l'etichetta del campo, che si chiama 'Età'. Quella etichetta è la **variabile**. È un contenitore con un nome (`età`, `altezza`, `è_fumatore`) che può ospitare valori diversi per pazienti diversi. Oggi per voi la variabile `età` contiene il letterale `24`, domani per un altro paziente conterrà `50`. Programmare significa creare queste schede vuote (variabili) e decidere quali valori concreti (letterali) inserirci dentro per far prendere decisioni al computer.
 
 Questa sezione vi accompagna attraverso i mattoni fondamentali di ogni programma Python: i tipi di dati elementari, il modo in cui Python comprende i numeri scritti in diverse basi, e le convenzioni con cui si dà un nome alle cose nel codice. Se la sezione 1.2 vi ha insegnato la grammatica del linguaggio (keyword, indentazione, commenti), questa sezione vi insegna il vocabolario di base, ossia le parole con cui si descrive la realtà all'interprete.
 
@@ -220,13 +220,13 @@ La funzione `int()` con due argomenti è particolarmente utile quando leggete da
 
 ## Variabili: Dare un Nome ai Valori
 
-Tornate per un momento all'analogia del supermercato. Sulla vostra lista non scrivete soltanto "3", ma "3 mele". Il nome "mele" identifica il contenitore; il valore "3" è ciò che ci mettete dentro. In Python, una variabile funziona esattamente così: è un nome che fate puntare a un valore nella memoria del computer.
+Tornate per un momento all'analogia del cartella medica. Sulla vostra cartella non scrivete soltanto "24", ma "Età: 24". Il nome "età" identifica il contenitore; il valore "24" è ciò che ci mettete dentro. In Python, una variabile funziona esattamente così: è un nome che fate puntare a un valore nella memoria del computer.
 
 L'operazione con cui create questo collegamento si chiama **assegnamento** e si usa il simbolo `=`.
 
 ```python
 # Assegnamento: il nome a sinistra, il valore a destra
-eta = 25
+eta = 24
 nome = "Marco"
 temperatura = 18.5
 cielo_sereno = True
@@ -304,6 +304,7 @@ Per le **variabili ordinarie e i parametri delle funzioni**, si usa lo `snake_ca
 
 ```python
 # Stile PEP 8 per variabili: snake_case
+codice_postale = "00100"
 numero_studenti = 30
 indirizzo_email = "mario@esempio.it"
 velocita_media_kmh = 90.5

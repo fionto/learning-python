@@ -1,4 +1,4 @@
-# 🐍 Preparazione Esame PCEP-30-02 (Entry-Level Python Programmer)
+# 🎖️ Preparazione Esame PCEP-30-02 (Entry-Level Python Programmer)
 
 Questo repository funge da guida allo studio e tracker dei progressi per l'esame **PCEP-30-02**. L'obiettivo è coprire tutti i punti del syllabus ufficiale del Python Institute per ottenere la certificazione entry-level.
 
@@ -26,8 +26,8 @@ L'esame **Certified Entry-Level Python Programmer** certifica la conoscenza dei 
 
 - [✅] **1.1** Termini fondamentali (Interprete/Compilatore, Lessico, Sintassi, Semantica) 
 - [✅] **1.2** Logica e struttura (Keyword, Istruzioni, Indentazione, Commenti) 
-- [⬜] **1.3** Letterali, variabili, sistemi numerici (Tipi base, Bin/Oct/Hex, PEP-8) 
-- [⬜] **1.4** Operatori e tipi di dati (Numerici, Bitwise, Booleani, Relazionali, Casting) 
+- [✅] **1.3** Letterali, variabili, sistemi numerici (Tipi base, Bin/Oct/Hex, PEP-8) 
+- [⏳] **1.4** Operatori e tipi di dati (Numerici, Bitwise, Booleani, Relazionali, Casting) 
 - [⬜] **1.5** Input/Output da console (`print()`, `input()`, parametri `sep` e `end`) 
 
 ---

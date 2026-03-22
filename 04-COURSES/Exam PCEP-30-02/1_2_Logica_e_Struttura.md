@@ -1,8 +1,8 @@
-# Capitolo 2: Sezione 1.2 — Logica e Struttura di Python: Keyword, Istruzioni, Indentazione, Commenti
+# Capitolo 1: Sezione 1.2 — Logica e Struttura di Python: Keyword, Istruzioni, Indentazione, Commenti
 
 ## Introduzione: Un Linguaggio con le Sue Regole
 
-Immaginate di ricevere le istruzioni per montare un mobile. Il foglio ha una struttura precisa: i passi sono numerati, ogni passo descrive una singola azione, i componenti necessari sono elencati in grassetto. Quella struttura non è lì per capriccio estetico: è il modo in cui il produttore ha stabilito che le istruzioni devono essere scritte perché un essere umano qualunque possa seguirle senza ambiguità. Se rimescolaste l'ordine dei passi, usaste parole inventate o saltaste l'indentazione degli avvertimenti, le istruzioni diventerebbero incomprensibili.
+Immaginate di leggere uno spartito musicale. Le note hanno un valore fisso, le battute scandiscono il tempo e gli strumenti sono raggruppati in pentagrammi allineati. Questa disposizione non è casuale: è il modo in cui il compositore comunica l'armonia agli orchestrali. Se spostaste una nota fuori dal rigo, ignoraste le pause o cambiaste il tempo, il brano diventerebbe rumore.
 
 Python funziona esattamente così. Ha una struttura, una logica interna, un vocabolario riservato. Nella dispensa precedente abbiamo visto la distinzione tra interprete e compilatore e abbiamo introdotto il concetto di lessico, sintassi e semantica. Ora scendiamo un livello e guardiamo come quella struttura si manifesta concretamente nel codice che scriviamo ogni giorno: le parole che Python riserva per sé, le istruzioni che compongono un programma, le regole di indentazione che danno significato alla posizione del codice, e i commenti che ci permettono di parlare al programmatore umano senza che Python si intrometta.
 
