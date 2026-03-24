@@ -1,4 +1,4 @@
-# Capitolo 4: Sezione 2.1 — Decisioni e Branching: Insegnare al Computer a Scegliere
+# Capitolo 2: Sezione 2.1 — Decisioni e Branching: Insegnare al Computer a Scegliere
 
 ## Introduzione: Il Bivio sulla Strada
 

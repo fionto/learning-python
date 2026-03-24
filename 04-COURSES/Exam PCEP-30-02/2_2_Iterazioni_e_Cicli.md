@@ -1,4 +1,4 @@
-# Capitolo 5: Sezione 2.2 — Iterazioni e Cicli: Il Potere della Ripetizione
+# Capitolo 2: Sezione 2.2 — Iterazioni e Cicli: Il Potere della Ripetizione
 
 ## Introduzione: La Lista della Spesa e il Calendario
 

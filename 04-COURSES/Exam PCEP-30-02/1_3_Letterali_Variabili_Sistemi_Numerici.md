@@ -131,6 +131,57 @@ print(paragrafo)
 
 Le stringhe in Python sono **immutabili**: una volta create, non possono essere modificate. Questo concetto tornerà più volte quando studierete i metodi delle stringhe e le confronterete con le liste.
 
+### Le Sequenze di Escape: Messaggi Segreti nell'Alfabeto
+
+Immaginate di dover scrivere un biglietto a un amico che reciti: *Lui disse: "Ciao"*. Se usate le virgolette doppie per racchiudere la stringa in Python, l'interprete si confonderà: vedrà le virgolette prima di *Ciao* e penserà che la frase sia finita lì, lasciando il resto del testo "appeso" nel vuoto, causando un errore.
+
+Come facciamo a dire a Python: "Guarda, queste virgolette non servono a chiudere la stringa, sono solo un pezzo di testo"? Usiamo un segnale speciale: il **backslash** (`\`), chiamato anche **carattere di escape**.
+
+Il backslash agisce come una sorta di "bacchetta magica" che cambia il significato del carattere che lo segue. Insieme, formano una **sequenza di escape**.
+
+Ecco le più importanti per l'esame PCEP:
+
+| Sequenza | Significato | Effetto Pratico |
+| :--- | :--- | :--- |
+| `\n` | **Newline** | Sposta il testo su una nuova riga (come premere Invio). |
+| `\t` | **Tab** | Inserisce uno spazio di tabulazione (un salto orizzontale). |
+| `\'` | **Single Quote** | Inserisce un apostrofo in una stringa delimitata da `'`. |
+| `\"` | **Double Quote** | Inserisce virgolette in una stringa delimitata da `"`. |
+| `\\` | **Backslash** | Inserisce un carattere backslash letterale. |
+
+
+
+Vediamole in azione:
+
+```python
+# Usare le virgolette dentro le virgolette
+citazione = "Lui disse: \"Python è fantastico\""
+print(citazione) 
+# Output: Lui disse: "Python è fantastico"
+
+# Creare una lista su più righe con un solo print
+lista_spesa = "Pane\nLatte\nUova"
+print(lista_spesa)
+# Output:
+# Pane
+# Latte
+# Uova
+
+# Formattare il testo a colonne con il Tab
+print("Nome:\tMario")
+print("Età:\t25")
+# Output:
+# Nome:   Mario
+# Età:    25
+
+# Scrivere un percorso di file (attenzione al doppio backslash!)
+percorso = "C:\\utenti\\documenti"
+print(percorso)
+# Output: C:\utenti\documenti
+```
+
+Senza il carattere di escape, l'ultimo esempio sarebbe un disastro: Python leggerebbe `\u` e `\d` cercando di interpretarli come comandi speciali, fallendo miseramente. Usando `\\`, diciamo invece: "Voglio proprio un backslash normale".
+
 ---
 
 ## I Sistemi Numerici: Binario, Ottale, Esadecimale

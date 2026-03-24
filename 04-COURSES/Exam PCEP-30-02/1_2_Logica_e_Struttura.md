@@ -74,6 +74,29 @@ c = 3
 
 La filosofia di Python è che il codice viene scritto una volta ma letto molte volte: da voi, dai colleghi, da voi stessi tra sei mesi quando avrete dimenticato i dettagli. La leggibilità non è un lusso, è un requisito.
 
+### Espressioni vs Istruzioni: Calcolare vs Agire
+
+Per capire come ragiona l'interprete Python, dobbiamo distinguere tra due concetti che spesso i programmatori alle prime armi confondono: le **espressioni** e le **istruzioni**. Se il codice fosse un discorso, le espressioni sarebbero i dati e i calcoli, mentre le istruzioni sarebbero le azioni compiute.
+
+#### L'Espressione: "Quanto fa?"
+Un'**espressione** è una combinazione di valori (letterali), variabili e operatori che l'interprete **valuta** per produrre un risultato. Pensate all'espressione come a una domanda che ponete a Python: "Quanto fa questa roba?".
+
+* `2 + 2` è un'espressione (risultato: `4`).
+* `prezzo * 1.22` è un'espressione (risultato: il prezzo ivato).
+* `"Ciao" + " " + nome` è un'espressione (risultato: un saluto personalizzato).
+
+La caratteristica fondamentale di un'espressione è che **restituisce sempre un valore**. Se la scrivete nel REPL di Python, vedrete subito il risultato della valutazione.
+
+#### L'Istruzione: "Fallo!"
+Un'**istruzione** (o *statement*) è un comando completo che ordina a Python di **eseguire un'azione**. Mentre l'espressione calcola qualcosa, l'istruzione "muove" qualcosa o cambia lo stato del programma.
+
+* `x = 10` è un'istruzione (assegnamento). Non "fa" 10, ma *ordina* a Python di memorizzare 10 in `x`.
+* `print("Ciao")` è un'istruzione (chiamata di funzione). Ordina a Python di inviare del testo allo schermo.
+* `if x > 0:` è l'inizio di un'istruzione composta (controllo di flusso).
+
+#### La differenza pratica
+Un'istruzione può **contenere** una o più espressioni, ma un'espressione da sola non costituisce necessariamente un'istruzione utile. In Python, quasi tutto ciò che "fa qualcosa" di visibile o permanente è un'istruzione, mentre tutto ciò che "è un valore" o "diventa un valore" è un'espressione.
+
 ## L'Indentazione: La Struttura Visiva che Dà Significato
 
 Arriviamo ora a uno degli aspetti di Python che più sorprende chi proviene da altri linguaggi di programmazione: l'**indentazione** non è solo una questione estetica, è parte integrante della sintassi. In Python, lo spazio a sinistra del codice ha un significato preciso e obbligatorio.

@@ -1,4 +1,4 @@
-# Capitolo 4: Sezione 1.5 — Input e Output da Console
+# Capitolo 1: Sezione 1.5 — Input e Output da Console
 
 ## Introduzione: il dialogo tra programma e utente
 
