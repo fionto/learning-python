@@ -65,4 +65,4 @@ L'esame **Certified Entry-Level Python Programmer** certifica la conoscenza dei 
 * [PCEP Exam Syllabus](https://pythoninstitute.org/pcep)
 
 ---
-*Ultimo aggiornamento: 21 Marzo 2026*
+*Ultimo aggiornamento: 24 Marzo 2026*
