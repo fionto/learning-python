@@ -328,6 +328,111 @@ print("   ".isspace())       # Stampa: True
 
 Questi metodi sono molto utili per validare l'input dell'utente prima di convertirlo in numero o di usarlo in un calcolo.
 
+### Verificare il Caso: `islower()`, `isupper()` e `swapcase()`
+
+Alla famiglia dei metodi booleani appartengono anche `islower()` e `isupper()`, che verificano rispettivamente se tutti i caratteri alfabetici della stringa sono minuscoli o maiuscoli. Entrambi restituiscono `True` o `False`, e ignorano i caratteri non alfabetici (cifre, punteggiatura, spazi) nel calcolo: una stringa come `"ciao123"` è considerata interamente minuscola perché le cifre non hanno "caso".
+
+```python
+print("ciao".islower())      # Stampa: True
+print("CIAO".isupper())      # Stampa: True
+print("Ciao".islower())      # Stampa: False  (la C è maiuscola)
+print("ciao123".islower())   # Stampa: True   (le cifre non contano)
+print("123".islower())       # Stampa: False  (nessun carattere con caso)
+```
+
+Il metodo `swapcase()` inverte il caso di ciascun carattere della stringa: le maiuscole diventano minuscole e viceversa. È meno frequente in produzione, ma utile per trasformazioni rapide e per capire a fondo il concetto di caso.
+
+```python
+testo = "La SCIENZA è Meravigliosa"
+print(testo.swapcase())   # Stampa: lA scienza È mERAVIGLIOSA
+```
+
+Si noti che `swapcase()`, come tutti i metodi visti finora, non modifica la stringa originale: produce una stringa nuova, come impone l'immutabilità.
+
+## `ord()` e `chr()`: Il Codice Numerico dei Caratteri
+
+Dietro ogni carattere che un computer visualizza si nasconde un numero. Questo è il principio su cui si basano tutti i sistemi di codifica del testo: in Python, come nella quasi totalità dei linguaggi moderni, si utilizza lo standard **Unicode**, che assegna un valore intero univoco a ogni carattere esistente, dalle lettere latine ai simboli arabi, dai caratteri cinesi agli emoji.
+
+La funzione `ord()` prende un singolo carattere e restituisce il suo valore numerico (il "codice ordinale"). La funzione `chr()` fa l'operazione inversa: prende un intero e restituisce il carattere corrispondente. Le due funzioni sono perfettamente simmetriche.
+
+```python
+# Da carattere a numero
+print(ord("A"))    # Stampa: 65
+print(ord("a"))    # Stampa: 97
+print(ord("0"))    # Stampa: 48
+print(ord("€"))    # Stampa: 8364
+
+# Da numero a carattere
+print(chr(65))     # Stampa: A
+print(chr(97))     # Stampa: a
+print(chr(8364))   # Stampa: €
+
+# La simmetria: ord e chr si invertono a vicenda
+print(chr(ord("B")))    # Stampa: B
+print(ord(chr(90)))     # Stampa: 90
+```
+
+Per i caratteri ASCII classici (lettere latine, cifre, punteggiatura di base) vale uno schema regolare che è utile conoscere: le lettere maiuscole vanno da 65 (`A`) a 90 (`Z`), quelle minuscole da 97 (`a`) a 122 (`z`), e le cifre da 48 (`0`) a 57 (`9`). Questo spiega perché `"A" < "a"` in Python: il confronto tra stringhe usa i valori ordinali, e 65 è minore di 97.
+
+```python
+# Il confronto tra stringhe usa i valori ordinali
+print("A" < "a")     # Stampa: True  (65 < 97)
+print("Z" < "a")     # Stampa: True  (90 < 97)
+print("b" > "a")     # Stampa: True  (98 > 97)
+
+# Differenza tra maiuscola e minuscola: sempre 32
+print(ord("a") - ord("A"))   # Stampa: 32
+```
+
+`ord()` riceve obbligatoriamente una stringa di esattamente un carattere; se si passa una stringa più lunga, solleva un `TypeError`. `chr()` riceve un intero nel range valido Unicode (0-1.114.111): valori fuori da questo intervallo producono un `ValueError`.
+
+## `min()` e `max()` sulle Stringhe
+
+Avete probabilmente già incontrato `min()` e `max()` applicati a liste di numeri: restituiscono il valore minimo e massimo dell'iterabile. Ebbene, le stesse funzioni si applicano anche alle stringhe, dove il "valore" di ciascun carattere è proprio il suo codice ordinale Unicode visto sopra.
+
+Quando si chiama `min()` o `max()` su una stringa, Python scorre tutti i caratteri, confronta i loro valori ordinali, e restituisce il carattere con il valore più basso o più alto. È come trovare la lettera alfabeticamente prima o dopo in un testo, tenendo conto che maiuscole e cifre hanno valori inferiori alle minuscole.
+
+```python
+parola = "python"
+print(min(parola))   # Stampa: h  (ord("h") = 104, il più basso tra p,y,t,h,o,n)
+print(max(parola))   # Stampa: y  (ord("y") = 121, il più alto)
+
+# Con maiuscole e minuscole: le maiuscole hanno codici inferiori
+testo = "Python"
+print(min(testo))   # Stampa: P  (ord("P") = 80, minore di tutte le minuscole)
+print(max(testo))   # Stampa: y  (ord("y") = 121)
+
+# Con cifre: le cifre hanno codici ancora più bassi (48-57)
+misto = "z3a"
+print(min(misto))   # Stampa: 3  (ord("3") = 51)
+print(max(misto))   # Stampa: z  (ord("z") = 122)
+```
+
+Queste funzioni tornano utili ogni volta che si vuole identificare rapidamente il carattere "estremo" di una stringa senza scrivere un ciclo esplicito.
+
+## `sorted()` Applicata alle Stringhe
+
+Poiché le stringhe sono immutabili, non dispongono di un metodo `.sort()` come le liste. Tuttavia, la funzione built-in `sorted()` può essere applicata a qualsiasi iterabile, stringhe incluse: restituisce una **lista** di caratteri ordinati secondo il loro valore ordinale Unicode.
+
+```python
+parola = "banana"
+caratteri_ordinati = sorted(parola)
+print(caratteri_ordinati)   # Stampa: ['a', 'a', 'a', 'b', 'n', 'n']
+
+# Ordinamento inverso con reverse=True
+print(sorted(parola, reverse=True))   # Stampa: ['n', 'n', 'b', 'a', 'a', 'a']
+```
+
+È importante ricordare che `sorted()` non restituisce una stringa: restituisce una lista di stringhe di un carattere. Se volete ricomporre il risultato in un'unica stringa, potete usare `join()`:
+
+```python
+parola = "python"
+ordinata = "".join(sorted(parola))
+print(ordinata)   # Stampa: hnopty
+```
+
+Questo pattern, `"".join(sorted(...))`, è idiomatico in Python e vale la pena memorizzarlo: permette di ottenere una versione "anagrammata in ordine" di una parola in una sola riga di codice. Come sempre, la stringa originale rimane intatta.
+
 ## Mettere Tutto Insieme: Un Esempio Integrato
 
 L'esempio seguente combina diversi dei concetti introdotti in questa sezione: lettura di un testo, pulizia degli spazi, analisi del contenuto e trasformazione.
@@ -364,6 +469,6 @@ Si noti come ogni passo produca una stringa nuova, lasciando la precedente invar
 
 Le stringhe occupano un posto centrale in qualsiasi programma che interagisca con il mondo esterno: file di testo, input dell'utente, messaggi di log, nomi di variabili in protocolli di comunicazione. Avere una padronanza solida del loro funzionamento significa poter trattare informazione testuale con la stessa sicurezza con cui si maneggiamo i numeri.
 
-In questa sezione avete visto che le stringhe si costruiscono in modi diversi, con delimitatori singoli, doppi o tripli, e che i caratteri escape permettono di rappresentare simboli che altrimenti sarebbero ambigui o impossibili da inserire. Avete scoperto che l'indicizzazione e lo slicing funzionano esattamente come sulle liste, ma con il vincolo dell'immutabilità: nessuna modifica in-place è possibile, solo la creazione di nuove stringhe. Infine, avete esplorato un arsenale di metodi che coprono le operazioni più frequenti: ricerca, sostituzione, divisione, unione, pulizia e verifica del contenuto.
+In questa sezione avete visto che le stringhe si costruiscono in modi diversi, con delimitatori singoli, doppi o tripli, e che i caratteri escape permettono di rappresentare simboli che altrimenti sarebbero ambigui o impossibili da inserire. Avete scoperto che l'indicizzazione e lo slicing funzionano esattamente come sulle liste, ma con il vincolo dell'immutabilità: nessuna modifica in-place è possibile, solo la creazione di nuove stringhe. Avete poi esplorato un arsenale di metodi che coprono le operazioni più frequenti: ricerca, sostituzione, divisione, unione, pulizia e verifica del contenuto, inclusi `islower()`, `isupper()` e `swapcase()` per lavorare sul caso dei caratteri. Infine avete visto come le funzioni `ord()` e `chr()` rivelino la natura numerica sottostante ai caratteri, come `min()` e `max()` sfruttino quei valori ordinali per identificare il carattere estremo di una stringa, e come `sorted()` permetta di ottenere una lista ordinata dei caratteri nonostante l'immutabilità.
 
 Con le stringhe, le liste, le tuple e i dizionari visti nelle sezioni 3.1 — 3.4, disponete ora di tutta la cassetta degli attrezzi per rappresentare e manipolare dati strutturati. Il passo successivo, nella Sezione 4, sarà organizzare il codice che lavora su questi dati in funzioni riutilizzabili: un salto di astrazione che renderà i vostri programmi più leggibili, testabili e mantenibili.

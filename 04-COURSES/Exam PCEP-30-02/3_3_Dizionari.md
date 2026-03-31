@@ -106,6 +106,38 @@ print(rubrica)         # Output: {'Giulia': '333-1234567'}
 
 ---
 
+### Gestione Avanzata: `update()` e `popitem()`
+
+Oltre all'assegnazione diretta, Python offre due metodi per manipolare le coppie chiave-valore in modo più strutturato.
+
+**`update(altro_dizionario)`** permette di aggiornare un dizionario "in blocco" usando un altro dizionario (o un iterabile di coppie). Se le chiavi esistono già, i loro valori vengono sovrascritti; se non esistono, vengono aggiunte come nuove. È lo strumento ideale per unire due database o applicare impostazioni di configurazione.
+
+```python
+profilo = {"nome": "Alice", "ruolo": "Admin"}
+nuovi_dati = {"ruolo": "SuperUser", "città": "Roma"}
+
+profilo.update(nuovi_dati)
+print(profilo)
+# Output: {'nome': 'Alice', 'ruolo': 'SuperUser', 'città': 'Roma'}
+```
+
+**`popitem()`** rimuove e restituisce l'**ultima** coppia chiave-valore inserita nel dizionario. La coppia viene restituita sotto forma di **tupla** `(chiave, valore)`. Se il dizionario è vuoto, chiamare questo metodo solleva un `KeyError`. Questo metodo è spesso usato in algoritmi che devono svuotare un dizionario procedendo a ritroso.
+
+```python
+sessione = {"id": 101, "user": "mario88", "status": "online"}
+
+ultima_coppia = sessione.popitem()
+print(f"Rimosso: {ultima_coppia}")
+# Output: Rimosso: ('status', 'online')
+
+print(sessione)
+# Output: {'id': 101, 'user': 'mario88'}
+```
+
+> **Nota di versione**: Fino a Python 3.6, i dizionari non erano ordinati e `popitem()` rimuoveva una coppia arbitraria. Dalla versione 3.7 in poi (quella su cui si basa l'esame PCEP), i dizionari mantengono l'ordine di inserimento e `popitem()` garantisce la rimozione dell'ultimo elemento inserito (LIFO - Last In, First Out).
+
+---
+
 ## Verificare l'Esistenza di una Chiave
 
 Prima di accedere a una chiave, spesso è utile verificare che esista. L'operatore `in`, già incontrato con le liste, funziona anche con i dizionari: controlla la presenza di una **chiave** (non di un valore) nel dizionario.
