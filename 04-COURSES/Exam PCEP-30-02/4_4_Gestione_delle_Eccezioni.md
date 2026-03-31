@@ -245,9 +245,102 @@ calcola_quoziente()
 
 In questo programma i ruoli sono ben separati. La funzione `chiedi_intero()` si occupa esclusivamente di ottenere un intero valido dall'utente, gestendo localmente il `ValueError` perché è l'unica che sa come recuperare (chiedere di nuovo). La funzione `calcola_quoziente()` gestisce il `ZeroDivisionError` perché è lei che esegue la divisione e ha il contesto per decidere cosa stampare. La struttura è pulita, ogni livello gestisce quello che gli compete.
 
+## L'Istruzione `raise`: Sollevare Eccezioni Intenzionalmente
+
+Finora abbiamo parlato di eccezioni come di eventi che Python solleva automaticamente quando qualcosa va storto a livello tecnico: una divisione per zero, un tipo sbagliato, un indice fuori range. Ma esiste un altro scenario, altrettanto comune: voi, come programmatori, volete interrompere il flusso perché una condizione logica non è soddisfatta, anche se Python non si accorgerebbe di niente.
+
+Pensate a una funzione che calcola la radice quadrata di un numero. Dal punto di vista di Python, chiamare quella funzione con un numero negativo non causa nessun errore immediato: il problema emerge solo più tardi, quando il risultato non ha senso. Voi potete intercettare il problema all'ingresso usando l'istruzione `raise`, che permette di sollevare deliberatamente un'eccezione specifica.
+
+```python
+import math
+
+def radice_quadrata(numero):
+    """Calcola la radice quadrata. Accetta solo valori non negativi."""
+    if numero < 0:
+        raise ValueError("Il numero deve essere non negativo.")
+    return math.sqrt(numero)
+
+# Chiamata corretta
+print(radice_quadrata(9))    # Stampa: 3.0
+
+# Chiamata scorretta: raise interrompe l'esecuzione
+print(radice_quadrata(-4))   # Solleva: ValueError: Il numero deve essere non negativo.
+```
+
+La sintassi è semplice: `raise` seguito dal nome della classe di eccezione, con un messaggio descrittivo tra parentesi. Una volta eseguita, l'istruzione `raise` si comporta esattamente come se l'eccezione fosse stata sollevata da Python stesso: interrompe il flusso corrente e inizia a propagarsi verso l'alto nella catena delle chiamate, dove potrà essere intercettata da un blocco `try-except`.
+
+Questa combinazione, funzione che solleva con `raise` e codice chiamante che cattura con `try-except`, è uno dei pattern più frequenti nella programmazione Python:
+
+```python
+def calcola_media(valori):
+    """Calcola la media di una lista. Richiede una lista non vuota."""
+    if len(valori) == 0:
+        raise ValueError("Impossibile calcolare la media di una lista vuota.")
+    return sum(valori) / len(valori)
+
+dati = []
+
+try:
+    media = calcola_media(dati)
+    print(f"Media: {media}")
+except ValueError as errore:
+    print(f"Errore nei dati: {errore}")
+
+# Stampa: Errore nei dati: Impossibile calcolare la media di una lista vuota.
+```
+
+Scegliere quale eccezione sollevare non è arbitrario: conviene usare il tipo che meglio descrive la natura del problema. Se il problema riguarda il valore di un argomento (`-4` per una radice quadrata, lista vuota per una media), `ValueError` è la scelta naturale. Se il problema riguarda il tipo dell'argomento (avete ricevuto una stringa dove vi aspettavate un numero), `TypeError` è più appropriato. Usare i tipi built-in standard rende il codice leggibile e compatibile con le aspettative di chi usa le vostre funzioni.
+
+## L'Istruzione `assert`: Verificare le Ipotesi Interne
+
+Accanto a `raise`, Python offre un secondo strumento per segnalare situazioni anomale: l'istruzione `assert`. Il suo scopo è diverso e più specifico: non serve a gestire errori dell'utente o condizioni di runtime impreviste, ma a verificare le **ipotesi interne** che il programmatore fa sul proprio codice durante lo sviluppo.
+
+L'analogia giusta è quella di un ingegnere che, mentre costruisce un ponte, inserisce dei sensori di controllo: non perché si aspetti che il ponte crolli, ma perché vuole essere avvertito immediatamente se qualcosa non torna, prima che il problema diventi critico.
+
+La sintassi di `assert` è la seguente:
+
+```python
+assert condizione
+assert condizione, "messaggio di errore"
+```
+
+Se la condizione è `True`, l'istruzione non fa nulla e il programma continua. Se la condizione è `False`, Python solleva automaticamente un'eccezione di tipo `AssertionError`, opzionalmente con il messaggio che avete fornito.
+
+```python
+def calcola_sconto(prezzo, percentuale):
+    """Applica uno sconto a un prezzo."""
+    # Ipotesi interne: i valori devono essere sensati
+    assert prezzo >= 0, "Il prezzo non può essere negativo."
+    assert 0 <= percentuale <= 100, "La percentuale deve essere tra 0 e 100."
+
+    sconto = prezzo * percentuale / 100
+    return prezzo - sconto
+
+print(calcola_sconto(100, 20))    # Stampa: 80.0
+print(calcola_sconto(50, 0))      # Stampa: 50.0
+calcola_sconto(-10, 20)           # Solleva: AssertionError: Il prezzo non può essere negativo.
+```
+
+È importante capire la differenza tra `assert` e `raise`. L'istruzione `raise` è pensata per segnalare errori che possono verificarsi in un programma correttamente funzionante, come un input utente sbagliato o un file mancante: situazioni che il codice deve essere in grado di affrontare. L'istruzione `assert`, invece, segnala errori nella logica del programmatore stesso: situazioni che non dovrebbero mai verificarsi se il codice è corretto. Se un `assert` scatta in produzione, significa che c'è un bug nel programma, non che l'utente ha fatto qualcosa di sbagliato.
+
+Per questa ragione, `assert` viene usata tipicamente durante lo sviluppo e il debugging, per rendere esplicite le assunzioni e scoprire velocemente dove la logica si rompe. Un uso classico è la verifica dei risultati intermedi in funzioni complesse:
+
+```python
+def inverti_lista(lst):
+    """Restituisce una nuova lista con gli elementi in ordine inverso."""
+    risultato = lst[::-1]
+    # Verifica interna: la lista invertita deve avere la stessa lunghezza dell'originale
+    assert len(risultato) == len(lst), "Errore interno: lunghezze diverse dopo l'inversione."
+    return risultato
+
+print(inverti_lista([1, 2, 3]))   # Stampa: [3, 2, 1]
+```
+
+In questo caso l'`assert` è ridondante dal punto di vista logico (è impossibile che lo slicing cambi la lunghezza), ma rende esplicita un'ipotesi e funge da documentazione eseguibile: chiunque legga il codice capisce immediatamente che il programmatore si aspetta quella proprietà.
+
 ## Conclusione: La Robustezza come Abitudine
 
-Le eccezioni non sono incidenti da nascondere o da temere: sono eventi prevedibili che un programma ben scritto anticipa e gestisce con cura. Il costrutto `try-except` è lo strumento principale per farlo; i rami `except` multipli permettono risposte diverse a problemi diversi; l'ordine dal più specifico al più generico garantisce che la gestione sia precisa; la propagazione offre la libertà di centralizzare la logica di errore dove ha più senso.
+Le eccezioni non sono incidenti da nascondere o da temere: sono eventi prevedibili che un programma ben scritto anticipa e gestisce con cura. Il costrutto `try-except` è lo strumento principale per intercettarle; i rami `except` multipli permettono risposte diverse a problemi diversi; l'ordine dal più specifico al più generico garantisce che la gestione sia precisa; la propagazione offre la libertà di centralizzare la logica di errore dove ha più senso. A questi strumenti si aggiungono `raise`, per segnalare intenzionalmente condizioni anomale e delegare la gestione al livello chiamante, e `assert`, per rendere esplicite le ipotesi interne e scoprire i bug prima che si nascondano in profondità.
 
 L'abitudine di pensare in termini di "cosa può andare storto qui, e chi deve occuparsene?" è una delle caratteristiche che distingue il codice robusto dal codice fragile. Un programma che crasha al primo input inatteso non è finito: è semplicemente un programma che non ha ancora incontrato la realtà.
 
