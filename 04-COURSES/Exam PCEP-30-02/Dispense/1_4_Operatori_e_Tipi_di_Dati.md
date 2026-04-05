@@ -210,6 +210,204 @@ if y > 0 or y / 0 > 1:      # Il secondo ramo non viene mai eseguito
 
 Questa proprietà è molto utile per scrivere condizioni sicure che evitino divisioni per zero o accessi a oggetti nulli.
 
+## Quando il Vero vale Uno
+
+Immaginate un interruttore della luce. Può essere acceso oppure spento: due soli stati possibili, nessuna via di mezzo. Ora immaginate che qualcuno vi chieda: "Quanti interruttori sono accesi in questa stanza?" Per rispondere, dovete *contare* qualcosa che prima era solo una condizione logica. Questo passaggio, dal concetto di "acceso/spento" alla quantità numerica, rispecchia esattamente ciò che Python fa internamente con il tipo `bool`.
+
+Sappiamo già che Python possiede il tipo `bool` con i due soli valori `True` e `False`. Li abbiamo usati nelle condizioni degli `if`, nelle espressioni logiche con `and`, `or` e `not`, nei confronti con `==` e `!=`. Sembravano entità a sé stanti, distaccate dal mondo dei numeri. Eppure, non è esattamente così.
+
+In Python, `bool` è una **sottoclasse** di `int`. Questa non è solo una curiosità: è una scelta di progettazione deliberata che ha conseguenze concrete sul comportamento del linguaggio. `True` si comporta come il numero intero `1` ogni volta che viene usato in un contesto aritmetico, e `False` si comporta come il numero intero `0`. Questa regola è semplice, ma è uno dei tranelli più frequenti nell'esame PCEP, perché è controintuitiva: ci aspettiamo che `True + True` sollevi un errore, invece Python la esegue serenamente.
+
+## `bool` è una sottoclasse di `int`
+
+Per capire davvero cosa significa, partiamo dalla conferma diretta che Python stesso ci fornisce.
+
+```python
+# Verificare la gerarchia di tipo
+print(isinstance(True, int))   # Stampa: True
+print(isinstance(False, int))  # Stampa: True
+print(type(True))              # Stampa: <class 'bool'>
+```
+
+`isinstance(True, int)` restituisce `True` perché `bool` eredita da `int`. Non si tratta di una conversione implicita che avviene al volo: `True` *è già* un intero, di valore `1`, avvolto in un tipo più specializzato. Allo stesso modo, `False` *è già* un intero di valore `0`.
+
+Questo significa che tutte le operazioni aritmetiche che funzionano sugli interi funzionano anche sui booleani, senza bisogno di alcuna conversione esplicita.
+
+## Aritmetica con `True` e `False`
+
+Osservate questi esempi con attenzione, perché ciascuno illustra un aspetto diverso del comportamento.
+
+```python
+# Addizione di booleani
+print(True + True)         # Stampa: 2
+print(True + False)        # Stampa: 1
+print(False + False)       # Stampa: 0
+print(True + True + False) # Stampa: 2
+```
+
+Il risultato di `True + True` è l'intero `2`, non il booleano `True`. Questo è il punto critico: quando i booleani partecipano a un'operazione aritmetica, il risultato è un `int`, non un `bool`. Python "promuove" il risultato al tipo più generale della gerarchia.
+
+```python
+# Moltiplicazione
+print(True * 5)    # Stampa: 5
+print(False * 5)   # Stampa: 0
+print(True * True) # Stampa: 1
+```
+
+`True * 5` produce `5` perché `1 * 5 = 5`. `False * 5` produce `0` perché `0 * 5 = 0`. Questo ha un utilizzo pratico: si può usare un booleano come "interruttore" per includere o escludere un valore da una somma, senza ricorrere a un `if`.
+
+```python
+# Un esempio pratico: sommare un valore solo se una condizione è vera
+prezzo_base = 100
+sconto_attivo = True
+sconto = 20
+
+totale = prezzo_base - sconto * sconto_attivo
+print(totale)  # Stampa: 80
+```
+
+Se `sconto_attivo` fosse `False`, `sconto * False` darebbe `0` e `totale` rimarrebbe `100`. Questo schema è lecito in Python, anche se nella maggior parte dei casi è preferibile usare un `if` esplicito per leggibilità.
+
+Infine, vale la pena verificare il comportamento con la divisione e il modulo.
+
+```python
+print(True / True)   # Stampa: 1.0  (divisione reale, risultato float)
+print(True // False) # ZeroDivisionError: integer division or modulo by zero
+```
+
+`True // False` è identico a `1 // 0` e solleva lo stesso errore. I booleani non sono esenti dalle regole matematiche fondamentali.
+
+## Confronti tra booleani e interi
+
+Poiché `True == 1` e `False == 0`, i confronti tra booleani e interi danno risultati che possono sorprendere chi non conosce questa regola.
+
+```python
+print(True == 1)    # Stampa: True
+print(False == 0)   # Stampa: True
+print(True == 2)    # Stampa: False
+print(False == 0.0) # Stampa: True  (0.0 è uguale a 0)
+```
+
+Un caso particolarmente insidioso nell'esame è il confronto con stringhe.
+
+```python
+print(True == "True")  # Stampa: False
+print(False == "")     # Stampa: False
+```
+
+La stringa `"True"` non è un intero, quindi il confronto con `True` (che vale `1`) restituisce `False`. Non c'è alcuna conversione automatica tra stringhe e booleani nella comparazione con `==`.
+
+## Valori Truthy e Falsy: la logica del "come se"
+
+Fino ad ora abbiamo parlato di `True` e `False` come valori espliciti. Ma Python ha un meccanismo più ampio: ogni valore di ogni tipo può essere usato in un contesto booleano, come la condizione di un `if`. In quel contesto, Python valuta implicitamente il valore e decide se considerarlo "vero" o "falso".
+
+Torniamo all'analogia degli interruttori, ampliandola. Immaginate che un sistema automatico debba decidere se accendere una pompa basandosi su diversi tipi di sensori: uno restituisce il numero di litri in un serbatoio, uno restituisce il testo di un messaggio di allerta, uno restituisce una lista di anomalie rilevate. In tutti i casi, la domanda sottostante è la stessa: "c'è qualcosa di significativo qui?". Un serbatoio con zero litri dice "no", uno con cento litri dice "sì". Un messaggio vuoto dice "no", un messaggio con testo dice "sì". Python formalizza esattamente questa intuizione.
+
+I valori che Python considera **falsy** (equivalenti a `False` in contesto booleano) sono i seguenti.
+
+| Valore | Tipo | Perché è falsy |
+|--------|------|----------------|
+| `False` | `bool` | È il falso per definizione |
+| `0` | `int` | Lo zero intero |
+| `0.0` | `float` | Lo zero in virgola mobile |
+| `""` | `str` | La stringa vuota |
+| `[]` | `list` | La lista vuota |
+| `()` | `tuple` | La tupla vuota |
+| `{}` | `dict` | Il dizionario vuoto |
+| `None` | `NoneType` | L'assenza di valore |
+
+Tutto il resto è **truthy**: qualsiasi intero diverso da zero, qualsiasi float diverso da zero, qualsiasi stringa non vuota, qualsiasi lista con almeno un elemento, e così via.
+
+```python
+# Esempi di valori falsy in un contesto if
+if 0:
+    print("non verrà mai stampato")
+
+if "":
+    print("neanche questo")
+
+if []:
+    print("nemmeno questo")
+
+# Esempi di valori truthy
+if 42:
+    print("42 è truthy")          # Stampa: 42 è truthy
+
+if "ciao":
+    print("una stringa è truthy") # Stampa: una stringa è truthy
+
+if [0]:
+    print("lista con un elemento è truthy")  # Stampa: lista con un elemento è truthy
+```
+
+Notate l'ultimo caso con attenzione: `[0]` è una lista che contiene l'elemento `0`. La lista stessa non è vuota, quindi è truthy, anche se il suo unico contenuto è un valore falsy. Il contesto booleano valuta il *contenitore*, non il suo contenuto.
+
+## La funzione `bool()`: rendere esplicito l'implicito
+
+Qualsiasi valore può essere convertito esplicitamente in `bool` tramite la funzione `bool()`. Questo è utile sia per chiarire l'intenzione nel codice, sia per capire esattamente cosa valuta Python quando incontra un valore in un contesto booleano.
+
+```python
+print(bool(0))      # Stampa: False
+print(bool(1))      # Stampa: True
+print(bool(-5))     # Stampa: True   (qualsiasi intero diverso da zero)
+print(bool(0.0))    # Stampa: False
+print(bool(0.001))  # Stampa: True
+print(bool(""))     # Stampa: False
+print(bool("0"))    # Stampa: True   (la stringa "0" non è vuota)
+print(bool([]))     # Stampa: False
+print(bool([0]))    # Stampa: True
+print(bool(None))   # Stampa: False
+```
+
+Un caso che sorprende molti è `bool("0")`: la stringa che contiene il carattere zero. Essa è truthy perché è una stringa *non vuota*. Falsy non significa "contiene uno zero" ma "non contiene nulla" oppure "vale numericamente zero" (per i tipi numerici) oppure "è il valore speciale `None`".
+
+## Il tipo del risultato: `bool` o `int`?
+
+Questa distinzione è importante per l'esame. Quando si usa `bool()` esplicitamente, il risultato è di tipo `bool`. Quando si eseguono operazioni aritmetiche su booleani, il risultato è di tipo `int`.
+
+```python
+# Risultato di tipo bool
+x = bool(1)
+print(type(x))        # Stampa: <class 'bool'>
+print(x)              # Stampa: True
+
+# Risultato di tipo int (operazione aritmetica)
+y = True + True
+print(type(y))        # Stampa: <class 'int'>
+print(y)              # Stampa: 2
+
+# Confronto: anche il confronto restituisce bool
+z = (1 == 1)
+print(type(z))        # Stampa: <class 'bool'>
+print(z)              # Stampa: True
+```
+
+## I tranelli più comuni nell'esame PCEP
+
+Raccolgo qui i pattern che appaiono più frequentemente nelle domande di sezione 1, proprio per consolidare i punti critici.
+
+Il primo riguarda l'addizione di booleani: `True + True` è `2`, non `True`. Il tipo del risultato è `int`, non `bool`.
+
+Il secondo riguarda il confronto con stringhe: `True == "True"` è `False`, e `False == ""` è `False`. I tipi non vengono coercizzati automaticamente nella comparazione.
+
+Il terzo riguarda il valore falsy dei contenitori: `[0]`, `[False]`, `[""]` sono tutti truthy perché le liste non sono vuote, indipendentemente da cosa contengono.
+
+Il quarto riguarda `None`: è sempre falsy, e non è equivalente a `0` né a `False`. `None == False` restituisce `False`.
+
+```python
+# Verifica rapida dei quattro tranelli
+print(True + True)       # 2, non True
+print(True == "True")    # False
+print(bool([False]))     # True
+print(None == False)     # False
+```
+
+Il tipo `bool` in Python non è un'isola isolata nella gerarchia dei tipi: è figlio di `int`, e questa eredità è visibile ogni volta che un booleano partecipa a un calcolo numerico. `True` porta con sé il valore `1`, `False` porta il valore `0`, e quando vengono coinvolti in aritmetica restituiscono interi ordinari.
+
+Al tempo stesso, il meccanismo truthy/falsy estende la logica booleana in direzione opposta: non solo i booleani si comportano come numeri, ma i numeri (e le stringhe, e le liste, e molto altro) si comportano come booleani ogni volta che Python ne ha bisogno. Il confine tra i tipi è permeabile, e capirne le regole permette di leggere codice altrui senza sorprese e di rispondere con sicurezza alle domande dell'esame che sfruttano queste sfumature.
+
+Questi concetti si collegano direttamente alla Sezione 2 del syllabus: nel momento in cui si usano variabili di tipo non booleano come condizioni di `if` o `while`, il meccanismo truthy/falsy entra in gioco automaticamente. Avere già chiaro il quadro completo renderà quella sezione molto più immediata.
+
 ## Accuratezza dei Float: Il Problema della Virgola Mobile
 
 Un tema che sorprende quasi tutti i nuovi programmatori è l'imprecisione dei numeri in virgola mobile. I computer rappresentano i float in binario, e alcune frazioni decimali (come 0.1 o 0.3) non possono essere rappresentate esattamente in binario, proprio come 1/3 non può essere scritto esattamente in decimale.
