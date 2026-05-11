@@ -19,7 +19,7 @@ for i in range(len(misure)):
 
 Il codice funziona, ma porta con sé del rumore: `range(len(...))` è un costrutto che richiede di leggere dall'interno verso l'esterno, e l'accesso tramite indice `misure[i]` introduce un livello di indiretto che non aggiunge informazione. Il problema reale (stampare ogni elemento con la sua posizione) è sepolto sotto la meccanica del conteggio.
 
-Python offre una collezione di strumenti della libreria standard, molti concentrati nel modulo `itertools`, che risolvono questi problemi in modo diretto ed espressivo. Non si tratta di scorciatoie superficiali: ciascuno di questi strumenti incarna una precisa astrazione sul concetto di iterazione, e riconoscerli nel codice altrui (e saperli usare nel proprio) è un tratto distintivo del codice Python maturo.
+Python offre una collezione di strumenti della libreria standard, molti concentrati nel modulo `itertools`, che risolvono questi problemi in modo diretto ed espressivo. Ciascuno di questi strumenti incarna una precisa astrazione sul concetto di iterazione, e riconoscerli nel codice altrui (e saperli usare nel proprio) è un tratto distintivo del codice Python maturo.
 
 ---
 
