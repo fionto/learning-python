@@ -44,6 +44,15 @@ raw_data = """
 2024-01-18 | MSFT | BUY | 8 | 405.00
 """
 
+# Output Atteso
+# --- REPORT PORTAFOGLIO ---
+# AAPL: {'totale_investito': 2245.0, 'numero_operazioni': 3}
+# TSLA: {'totale_investito': 1200.0, 'numero_operazioni': 1}
+# MSFT: {'totale_investito': 7921.2, 'numero_operazioni': 2}
+# BTC: {'totale_investito': 42000.0, 'numero_operazioni': 1}
+# --------------------------
+# VALORE TOTALE INVESTITO: 53366.2
+
 lines = raw_data.splitlines()
 
 for line in lines:
