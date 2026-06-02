@@ -12,14 +12,15 @@ pattern_date = r'\d{4}\d{2}\d{2}'  # equivalente a r'\d{8}'
 # ✅ search - cerca ovunque
 # e restituisce un oggetto match al primo incontro
 search1 = re.search(pattern_date, filename) 
-print(search1.group())
+if search1:
+    print(search1.group())
 
 #re.match -> vincola la ricerca all'inizio della stringa
 match1 = re.match(pattern_date, date)       # ✅ match - funziona perché date inizia con 8 cifre
 match2 = re.match(pattern_date, filename)   # restituisce None se non lo trova o non è all'inizio
-print(match1.group())
-# print(match2.group()) # ❌ AttributeError! None non ha metodo .group()
 
+
+# print(match2.group()) # ❌ AttributeError! None non ha metodo .group()
 # ✅ CORRETTO - gestione dell'errore
 if match2:
     print(f"match su filename: {match2.group()}")
