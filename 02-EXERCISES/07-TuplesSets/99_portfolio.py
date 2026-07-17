@@ -53,7 +53,65 @@ raw_data = """
 # --------------------------
 # VALORE TOTALE INVESTITO: 53366.2
 
-lines = raw_data.splitlines()
+def elabora_riga_grezza(riga: str) -> tuple:
+    """
+    Riceve una riga nel formato:
+    DATA | TITOLO | OPERAZIONE | QUANTITA | PREZZO
 
-for line in lines:
-    print(line)
+    Restituisce una tupla contenente:
+    (titolo, operazione, quantita, prezzo)
+
+    La data viene ignorata.
+    """
+
+    # Verifica che la riga non sia vuota
+    if not riga.strip():
+        raise ValueError("La riga è vuota.")
+
+    try:
+        # Divide la riga nei campi, rimuove gli spazi
+        # e converte tutto in maiuscolo
+        _, titolo, operazione, quantita, prezzo = (
+            campo.strip().upper()
+            for campo in riga.split("|")
+        )
+
+    except ValueError:
+        # L'unpacking fallisce se i campi non sono esattamente 5
+        raise ValueError(
+            "Numero di campi non valido: attesi 5 campi separati da '|'."
+        )
+
+    risultato = (titolo, operazione, quantita, prezzo)
+
+    # Verifica che nessun campo richiesto sia vuoto
+    if any(not campo for campo in risultato):
+        raise ValueError(
+            "Riga malformata: uno o più valori obbligatori sono mancanti."
+        )
+
+    return risultato
+
+
+def carica_righe(raw_data: str) -> list[tuple]:
+    """
+    Elabora un blocco di testo contenente più righe di dati.
+
+    Per ogni riga:
+    - tenta di convertirla in una tupla tramite elabora_riga_grezza();
+    - se la riga è malformata, la ignora senza interrompere l'elaborazione.
+
+    Restituisce una lista contenente solo le tuple valide.
+    """
+    
+    risultato = []
+
+    for riga in raw_data.splitlines():
+        try:
+            risultato.append(elabora_riga_grezza(riga))
+        except ValueError:
+            pass
+
+    return risultato
+
+print(carica_righe(raw_data))
